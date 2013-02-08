@@ -10,4 +10,35 @@
 
 @implementation DayData
 
+-(void)setTemp:(NSNumber *)aTemp
+{
+    _todayTemp = aTemp;
+}
+
+-(void)setToday
+{
+    _theDay = [NSDate date];
+
+}
+
+-(void)setDifferentDay:(NSDate *)thatDay
+{
+    _theDay = thatDay;
+}
+
+-(id)init
+{
+    self = [super init];
+    
+    if (self)
+    {
+        [self setToday];
+        return self;
+    }
+    
+    return nil;
+    
+    
+}
+
 @end

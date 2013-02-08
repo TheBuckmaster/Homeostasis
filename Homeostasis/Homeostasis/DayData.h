@@ -9,7 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface DayData : NSObject
+
 @property (nonatomic, strong) NSDate *theDay;
 @property (nonatomic, strong) NSNumber *todayTemp;
+
+-(id)init;
+-(void)setToday;
+-(void)setDifferentDay:(NSDate *)thatDay;
+-(void)setTemp:(NSNumber *)aTemp;
 
 @end
