@@ -103,16 +103,18 @@
 {
     if([[segue identifier] isEqualToString:@"addNewDayReturn"])
     {
+        NSLog(@"Sending Data"); 
+        
         DayData *newDay;
         newDay = [[DayData alloc] init];
         [newDay setToday];
         //Also set today's Temp. For now we'll just do 98.6.
-        [newDay setTodayTemp:[[NSNumber init] initWithDouble:98.6N]umb]];
-   self.dayOfData = newDay;     
+        [newDay setTodayTemp:[[NSNumber init] initWithDouble:98.6]];
+        self.dayOfData = newDay;     
     }
-    
-    
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {

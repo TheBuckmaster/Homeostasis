@@ -15,6 +15,6 @@
 @property NSMutableArray *listOfWholeTemps;
 @property NSMutableArray *listOfTenthTemps;
 
-@property (strong,nonatomic) DayData *dayOfData;
+@property (strong,atomic) DayData *dayOfData;
 
 @end

@@ -7,13 +7,9 @@
 //
 
 #import "PDataMasterViewController.h"
-
 #import "PDataDetailViewController.h"
-
 #import "DayData.h"
-
 #import "DayDataDataController.h"
-
 #import "AddDayDataViewController.h"
 
 @implementation PDataMasterViewController
@@ -54,13 +50,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    /*
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
     
-     
-    */
+    NSLog(@"Trying to Add Row Now"); 
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+
+    DayData *object = [self.dataController objectInListAtIndex:indexPath.row];
+    cell.textLabel.text = [object theDay].description;
+    cell.detailTextLabel.text = [object todayTemp].description;
+
     return cell;
 }
 
@@ -96,6 +93,18 @@
 }
 */
 
+- (void)insertNewObject:(DayData *) dd
+{
+    NSLog(@"A1");
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.dataController countOfList]
+                                                   inSection:1];
+    //NSLog(@"A2");
+    //[self.dataController addDayDataToList:dd];
+    //NSLog(@"A3");
+    //[self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+}
+
 - (IBAction)cancel:(UIStoryboardSegue *)segue
 
 {
@@ -103,23 +112,22 @@
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
 }
-/*
+
 - (IBAction)done:(UIStoryboardSegue *)segue
 {
+    NSLog(@"Data Received"); 
+    
     if ([[segue identifier] isEqualToString:@"addNewDayReturn"])
     {
-        [self.dataController addDayDataToList:s
+        NSLog(@"Data Actually Received");
+        AddDayDataViewController *addController = [segue sourceViewController];
+        [self insertNewObject:addController.dayOfData];
+        
+        //[[self tableView] reloadData];
+        [self dismissViewControllerAnimated:YES completion:NULL];
     }
     
 }
-*/
 
-- (IBAction)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([[segue identifier] isEqualToString:@"addNewDayReturn"])
-        //Necessary Action.
-    {}
-    
-}
 
 @end

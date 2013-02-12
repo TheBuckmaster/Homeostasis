@@ -12,7 +12,7 @@
 @interface DayDataDataController : NSObject
 @property (nonatomic,copy)NSMutableArray *currentDataEntries;
 
-- (NSUInteger)countOfList;
+- (int)countOfList;
 
 - (DayData *)objectInListAtIndex:(NSUInteger)theIndex;
 

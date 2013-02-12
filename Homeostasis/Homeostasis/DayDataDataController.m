@@ -37,7 +37,7 @@
     return nil;
 }
 
-- (NSUInteger)countOfList
+- (int)countOfList
 {
     return _currentDataEntries.count;
 }
