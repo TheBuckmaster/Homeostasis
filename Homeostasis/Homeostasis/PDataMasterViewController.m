@@ -103,12 +103,23 @@
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
 }
-
+/*
 - (IBAction)done:(UIStoryboardSegue *)segue
 {
-
+    if ([[segue identifier] isEqualToString:@"addNewDayReturn"])
+    {
+        [self.dataController addDayDataToList:s
+    }
     
 }
+*/
 
+- (IBAction)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"addNewDayReturn"])
+        //Necessary Action.
+    {}
+    
+}
 
 @end

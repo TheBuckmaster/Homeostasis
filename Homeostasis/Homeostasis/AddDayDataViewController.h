@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 @class DayData;
 @interface AddDayDataViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIDatePicker *dayChosen;
+
+@property (weak, nonatomic) IBOutlet UIPickerView *chosenTemp;
+//@property (weak, nonatomic) IBOutlet UIPickerView *chosenTempTenth;
+@property NSMutableArray *listOfWholeTemps;
+@property NSMutableArray *listOfTenthTemps;
 
 @property (strong,nonatomic) DayData *dayOfData;
 
