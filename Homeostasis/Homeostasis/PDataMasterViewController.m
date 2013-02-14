@@ -55,6 +55,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     DayData *object = [self.dataController objectInListAtIndex:indexPath.row];
+    NSLog(@"%@",object); 
+    
     cell.textLabel.text = [object theDay].description;
     cell.detailTextLabel.text = [object todayTemp].description;
 
@@ -97,11 +99,11 @@
 {
     NSLog(@"A1");
     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.dataController countOfList]
-                                                   inSection:1];
-    //NSLog(@"A2");
-    //[self.dataController addDayDataToList:dd];
-    //NSLog(@"A3");
-    //[self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                                                   inSection:0];
+    NSLog(@"A2");
+    [self.dataController addDayDataToList:dd];
+    NSLog(@"A3");
+    [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 
 }
 
@@ -119,10 +121,10 @@
     
     if ([[segue identifier] isEqualToString:@"addNewDayReturn"])
     {
-        NSLog(@"Data Actually Received");
         AddDayDataViewController *addController = [segue sourceViewController];
+        NSLog(@"Data Actually Received");
+        NSLog(@"%@", addController.dayOfData);
         [self insertNewObject:addController.dayOfData];
-        
         //[[self tableView] reloadData];
         [self dismissViewControllerAnimated:YES completion:NULL];
     }

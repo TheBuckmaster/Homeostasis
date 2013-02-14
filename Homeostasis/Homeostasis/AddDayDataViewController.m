@@ -99,17 +99,19 @@
     
 }
 
-- (IBAction)done:(UIStoryboardSegue *)segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([[segue identifier] isEqualToString:@"addNewDayReturn"])
     {
-        NSLog(@"Sending Data"); 
-        
         DayData *newDay;
         newDay = [[DayData alloc] init];
         [newDay setToday];
         //Also set today's Temp. For now we'll just do 98.6.
-        [newDay setTodayTemp:[[NSNumber init] initWithDouble:98.6]];
+        NSNumber *currTemp = [[NSNumber alloc] initWithFloat:98.6];
+        //currTemp = [currTemp initWithDouble:98.6];
+        NSLog(@"Temp : %@",currTemp);
+        [newDay setTodayTemp:currTemp];
+        NSLog(@"Sending Data");
         self.dayOfData = newDay;     
     }
 }

@@ -23,7 +23,8 @@
 
 - (void)initEmptyList
 {
-    self.currentDataEntries = [[NSMutableArray alloc] init];
+    NSMutableArray *newList = [[NSMutableArray alloc] init];
+    self.currentDataEntries = newList;
 }
 
 - (id)init {
@@ -35,6 +36,14 @@
     }
     
     return nil;
+}
+
+- (void)setCurrentDataEntries:(NSMutableArray *)newList
+{
+    if(_currentDataEntries != newList)
+    {
+        _currentDataEntries = [newList mutableCopy];
+    }
 }
 
 - (int)countOfList
@@ -50,6 +59,7 @@
 }
 - (void)addDayDataToList:(DayData *)thisDay
 {
+    NSLog(@"%@", thisDay); //So we know it's getting a valid object.
     [self.currentDataEntries addObject:thisDay];
 }
 
