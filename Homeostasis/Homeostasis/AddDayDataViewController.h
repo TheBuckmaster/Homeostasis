@@ -14,6 +14,8 @@
 //@property (weak, nonatomic) IBOutlet UIPickerView *chosenTempTenth;
 @property NSMutableArray *listOfWholeTemps;
 @property NSMutableArray *listOfTenthTemps;
+@property NSNumber *wholeAndPartTemp;
+
 
 @property (strong,atomic) DayData *dayOfData;
 

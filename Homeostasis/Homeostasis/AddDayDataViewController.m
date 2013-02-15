@@ -29,9 +29,7 @@
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
 {
-    //This should be Return 2, it is Return 1 for demo purposes.
     return 2;
-
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
@@ -62,9 +60,29 @@
 
 - (void)pickerView:(UIPickerView*)chosenTemp didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     
-    NSLog(@"Selected an Item!"); 
+    NSLog(@"Selected an Item at");
+    NSLog(@"row: %d component: %d ",row,component);
+    NSString *first = [self.listOfWholeTemps objectAtIndex:row];
+    NSString *second = [self.listOfTenthTemps objectAtIndex:row];
+    NSNumber *wholePart;
+    NSNumber *fractionalPart;
     
+    if(component == 0){
+        wholePart = [[NSNumber alloc]initWithInt:[first intValue]];
+        //NSLog(@"Whole:%@",wholePart);
+    }
+    else
+    {
+        fractionalPart = [[NSNumber alloc] initWithFloat:[second floatValue]];
+        //NSLog(@"Fraction:%@",fractionalPart);
+    }
     
+    float newFloat = [wholePart intValue] + [fractionalPart floatValue];
+    NSLog(@"NF: %f",newFloat); 
+    
+    self.wholeAndPartTemp = [_wholeAndPartTemp initWithFloat:newFloat];
+    
+    NSLog(@"Combined Temp : %f",self.wholeAndPartTemp.floatValue);
 }
 
 
@@ -72,6 +90,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    _wholeAndPartTemp = [[NSNumber alloc] init];
     
     _listOfWholeTemps = [[NSMutableArray alloc] init];
     [_listOfWholeTemps addObject:@"95"];
