@@ -58,31 +58,32 @@
 }
 
 
+
 - (void)pickerView:(UIPickerView*)chosenTemp didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     
-    NSLog(@"Selected an Item at");
-    NSLog(@"row: %d component: %d ",row,component);
-    NSString *first = [self.listOfWholeTemps objectAtIndex:row];
-    NSString *second = [self.listOfTenthTemps objectAtIndex:row];
-    NSNumber *wholePart;
-    NSNumber *fractionalPart;
+    //NSLog(@"Selected an Item at");
+    //NSLog(@"row: %d component: %d ",row,component);
     
-    if(component == 0){
-        wholePart = [[NSNumber alloc]initWithInt:[first intValue]];
-        //NSLog(@"Whole:%@",wholePart);
-    }
-    else
+    NSString *first;    //These are clarity strings.
+    NSString *second;   //They made life much easier. 
+
+    
+    if(component == 0)
     {
-        fractionalPart = [[NSNumber alloc] initWithFloat:[second floatValue]];
+        first = [self.listOfWholeTemps objectAtIndex:row];
+        self.wholePart = [[NSNumber alloc]initWithInt:[first intValue]];
+
+    }
+    if(component == 1)
+    {
+        second = [self.listOfTenthTemps objectAtIndex:row];
+        self.fractionalPart = [[NSNumber alloc] initWithFloat:[second floatValue]];
         //NSLog(@"Fraction:%@",fractionalPart);
     }
     
-    float newFloat = [wholePart intValue] + [fractionalPart floatValue];
-    NSLog(@"NF: %f",newFloat); 
+    float newFloat = [self.wholePart intValue] + [self.fractionalPart floatValue];    
+    self.wholeAndPartTemp = [[NSNumber alloc] initWithFloat:newFloat];
     
-    self.wholeAndPartTemp = [_wholeAndPartTemp initWithFloat:newFloat];
-    
-    NSLog(@"Combined Temp : %f",self.wholeAndPartTemp.floatValue);
 }
 
 
@@ -91,7 +92,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    _wholeAndPartTemp = [[NSNumber alloc] init];
+    //Values for part of temp storage.
+    _wholePart = [[NSNumber alloc] init];
+    _fractionalPart = [[NSNumber alloc] init];
+    
+    //Set datePickerMode. We don't particularly care about time right now. 
+    _chosenDay.datePickerMode = UIDatePickerModeDate;
     
     _listOfWholeTemps = [[NSMutableArray alloc] init];
     [_listOfWholeTemps addObject:@"95"];
@@ -102,7 +108,13 @@
     [_listOfWholeTemps addObject:@"100"];
     [_listOfWholeTemps addObject:@"101"];
     [_listOfWholeTemps addObject:@"102"];
-    
+    [_listOfWholeTemps addObject:@"103"];
+    [_listOfWholeTemps addObject:@"104"];
+    [_listOfWholeTemps addObject:@"105"];
+    [_listOfWholeTemps addObject:@"106"];
+    [_listOfWholeTemps addObject:@"107"];
+    [_listOfWholeTemps addObject:@"108"];
+    [_listOfWholeTemps addObject:@"109"];
     
     _listOfTenthTemps = [[NSMutableArray alloc] init];
     [_listOfTenthTemps addObject:@".0"];
@@ -116,6 +128,15 @@
     [_listOfTenthTemps addObject:@".8"];
     [_listOfTenthTemps addObject:@".9"];
     
+    //Set both the pickerView and the combined output temp to 98.6 degrees.
+    [_chosenTemp selectRow:3 inComponent:0 animated:YES]; //These will need to be double-checked
+    [_chosenTemp selectRow:6 inComponent:1 animated:YES]; //If more options are added. 
+    _wholePart = [[NSNumber alloc]initWithInt:98];
+    _fractionalPart = [[NSNumber alloc] initWithFloat:.6];
+    _wholeAndPartTemp = [[NSNumber alloc] initWithFloat:
+                         ([_wholePart intValue] +
+                          [_fractionalPart floatValue])];
+
     
 }
 
@@ -123,15 +144,17 @@
 {
     if([[segue identifier] isEqualToString:@"addNewDayReturn"])
     {
+        //In this block, we create and define a new DayData object to return. 
         DayData *newDay;
         newDay = [[DayData alloc] init];
-        [newDay setToday];
-        //Also set today's Temp. For now we'll just do 98.6.
-        NSNumber *currTemp = [[NSNumber alloc] initWithFloat:98.6];
-        //currTemp = [currTemp initWithDouble:98.6];
-        NSLog(@"Temp : %@",currTemp);
-        [newDay setTodayTemp:currTemp];
-        NSLog(@"Sending Data");
+        
+        //Using _chosenDay(the DatePicker)'s date, we set the DayData's date field. 
+        [newDay setDifferentDay:self.chosenDay.date];
+        //Using information passed from the TempPicker, we set the temp field. 
+        [newDay setTodayTemp:self.wholeAndPartTemp];
+        
+        //Finally, on a segue, we'll return this data member to the Master View Controller. 
+        //NSLog(@"Sending Data");
         self.dayOfData = newDay;     
     }
 }

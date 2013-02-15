@@ -10,13 +10,18 @@
 @class DayData;
 @interface AddDayDataViewController : UIViewController
 
+//The date picker and picker wheels. 
+@property (weak, nonatomic) IBOutlet UIDatePicker *chosenDay;
 @property (weak, nonatomic) IBOutlet UIPickerView *chosenTemp;
-//@property (weak, nonatomic) IBOutlet UIPickerView *chosenTempTenth;
+
+//Local variables for keeping correct values as different variables are changed. 
 @property NSMutableArray *listOfWholeTemps;
 @property NSMutableArray *listOfTenthTemps;
+@property NSNumber *wholePart;
+@property NSNumber *fractionalPart;
 @property NSNumber *wholeAndPartTemp;
 
-
+//The "Return Value" object for the done: segue. 
 @property (strong,atomic) DayData *dayOfData;
 
 @end

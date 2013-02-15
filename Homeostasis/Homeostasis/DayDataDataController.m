@@ -59,7 +59,7 @@
 }
 - (void)addDayDataToList:(DayData *)thisDay
 {
-    NSLog(@"%@", thisDay); //So we know it's getting a valid object.
+    //NSLog(@"%@", thisDay); //So we know it's getting a valid object.
     [self.currentDataEntries addObject:thisDay];
 }
 

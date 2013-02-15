@@ -25,7 +25,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    //self.navigationItem.rightBarButtonItem =
 
 }
 
@@ -51,15 +50,35 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSLog(@"Trying to Add Row Now"); 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
     DayData *object = [self.dataController objectInListAtIndex:indexPath.row];
-    NSLog(@"%@",object); 
     
-    cell.textLabel.text = [object theDay].description;
+    //Perhaps we want to do something particular if the user reports a particularly high temp.
+    //This variable specifies a value above which the text will turn red. 
+    NSNumber *warningValue = [[NSNumber alloc] initWithDouble:100.0];
+    NSDate *date = [object theDay];
+    
+    //This block controls formatting of the date, such that we can be assured of cell space
+    //in case it is needed for future offerings. 
+    NSDateFormatter *tableFormat = [[NSDateFormatter alloc] init];
+    [tableFormat setDateStyle:NSDateFormatterShortStyle];
+    [tableFormat setTimeStyle:NSDateFormatterShortStyle];
+    //This should be considered the normal behavior.
+    //Alternately, comment in the following instead,
+    //which will not display the time at all:
+    //[tableFormat setTimeStyle:NSDateFormatterNoStyle];
+    
+    //Finally, we finish the formatting for the date. 
+    NSString *niceDate = [tableFormat stringFromDate:date];
+    
+    //These lines programatically adjust the contents of the cell's members. 
+    cell.textLabel.text = niceDate; 
     cell.detailTextLabel.text = [object todayTemp].description;
-
+    if ([[object todayTemp ]doubleValue] > [warningValue doubleValue])
+    {
+        cell.detailTextLabel.textColor = [UIColor redColor];
+    }
+    
     return cell;
 }
 
@@ -97,12 +116,9 @@
 
 - (void)insertNewObject:(DayData *) dd
 {
-    NSLog(@"A1");
     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.dataController countOfList]
                                                    inSection:0];
-    NSLog(@"A2");
     [self.dataController addDayDataToList:dd];
-    NSLog(@"A3");
     [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 
 }
@@ -117,19 +133,14 @@
 
 - (IBAction)done:(UIStoryboardSegue *)segue
 {
-    NSLog(@"Data Received"); 
-    
     if ([[segue identifier] isEqualToString:@"addNewDayReturn"])
     {
+        //NSLog(@"Data Received");
         AddDayDataViewController *addController = [segue sourceViewController];
-        NSLog(@"Data Actually Received");
-        NSLog(@"%@", addController.dayOfData);
         [self insertNewObject:addController.dayOfData];
-        //[[self tableView] reloadData];
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
     
 }
-
 
 @end
