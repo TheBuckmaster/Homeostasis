@@ -11,6 +11,7 @@
 
 
 #import "AddDayDataViewController.h"
+#import "ChooseDateViewController.h" 
 #import "DayData.h"
 @interface AddDayDataViewController ()
 
@@ -96,8 +97,12 @@
     _wholePart = [[NSNumber alloc] init];
     _fractionalPart = [[NSNumber alloc] init];
     
-    //Set datePickerMode. We don't particularly care about time right now. 
-    _chosenDay.datePickerMode = UIDatePickerModeDate;
+    //Set the date by default to today;
+    
+    if(!_theNewDay)
+    {
+        _theNewDay = [[NSDate alloc] init];
+    }
     
     _listOfWholeTemps = [[NSMutableArray alloc] init];
     [_listOfWholeTemps addObject:@"95"];
@@ -140,27 +145,58 @@
     
 }
 
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    //This is the identifier to return the newly created DayData object
+    //back to the MasterViewController to display it. 
     if([[segue identifier] isEqualToString:@"addNewDayReturn"])
     {
         //In this block, we create and define a new DayData object to return. 
-        DayData *newDay;
-        newDay = [[DayData alloc] init];
+        DayData *brandNewDay;
+        brandNewDay = [[DayData alloc] init];
         
-        //Using _chosenDay(the DatePicker)'s date, we set the DayData's date field. 
-        [newDay setDifferentDay:self.chosenDay.date];
+        //Using the local variable (NSDate) _theNewDay, set the date to return.
+        [brandNewDay setDifferentDay:self.theNewDay];
         //Using information passed from the TempPicker, we set the temp field. 
-        [newDay setTodayTemp:self.wholeAndPartTemp];
+        [brandNewDay setTodayTemp:self.wholeAndPartTemp];
         
         //Finally, on a segue, we'll return this data member to the Master View Controller. 
         //NSLog(@"Sending Data");
-        self.dayOfData = newDay;     
+        self.dayOfData = brandNewDay;
+    }
+    
+    //This is the identifier to use a custom value for the date. 
+    if ([[segue identifier] isEqualToString:@"pickADate"])
+    {
+        ChooseDateViewController *dateChooserView = [segue destinationViewController];
+        dateChooserView.ultimateChosenDate = self.theNewDay;
     }
 }
 
+- (IBAction)done:(UIStoryboardSegue *)segue
+{
+    if ([[segue identifier] isEqualToString:@"returnNewDate"])  
+    {
+        ChooseDateViewController *chooseController = [segue sourceViewController];
+        
+        NSLog(@"DateReturned");
+        NSLog(@"%@",chooseController.ultimateChosenDate); 
+        
+        self.theNewDay = chooseController.ultimateChosenDate;
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    }
+}
 
+- (IBAction)cancel:(UIStoryboardSegue *)sender
+{
+    if([[sender identifier] isEqualToString:@"noNewDate"])
+    {
+    [self dismissViewControllerAnimated:YES completion:NULL];
 
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

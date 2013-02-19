@@ -10,8 +10,7 @@
 @class DayData;
 @interface AddDayDataViewController : UIViewController
 
-//The date picker and picker wheels. 
-@property (weak, nonatomic) IBOutlet UIDatePicker *chosenDay;
+//The Temp picker wheel.
 @property (weak, nonatomic) IBOutlet UIPickerView *chosenTemp;
 
 //Local variables for keeping correct values as different variables are changed. 
@@ -20,6 +19,12 @@
 @property NSNumber *wholePart;
 @property NSNumber *fractionalPart;
 @property NSNumber *wholeAndPartTemp;
+
+//A Local Date to coordinate with the next view if Today is not correct.
+@property (strong, atomic) NSDate *theNewDay;
+
+-(IBAction)done:(UIStoryboardSegue*)sender;
+-(IBAction)cancel:(UIStoryboardSegue*)sender;
 
 //The "Return Value" object for the done: segue. 
 @property (strong,atomic) DayData *dayOfData;

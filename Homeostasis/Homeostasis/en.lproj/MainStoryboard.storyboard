@@ -36,12 +36,84 @@
                                     <outlet property="delegate" destination="LHP-QM-SiW" id="THQ-0T-PRo"/>
                                 </connections>
                             </pickerView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qqf-gp-Aiv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dcz-xW-KEo">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cDU-8W-wAL" kind="push" identifier="pickADate" id="5nL-5g-llJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gOA-f2-3Xe">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="xrN-5o-PdZ"/>
+                                    <constraint firstAttribute="height" constant="96" id="3WZ-u4-MZS"/>
                                 </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="382658459.72532803">
-                                    <!--2013-02-15 22:00:59 +0000-->
+                                <attributedString key="attributedText">
+                                    <fragment content="By Default, Days are init to today. Click here to override this behavior. ">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gOA-f2-3Xe" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0Ug-IO-G4u"/>
+                            <constraint firstItem="Dcz-xW-KEo" firstAttribute="top" secondItem="qjp-0O-IE0" secondAttribute="top" constant="56" id="4hk-Sg-C6d"/>
+                            <constraint firstItem="VAL-PO-lj5" firstAttribute="leading" secondItem="qjp-0O-IE0" secondAttribute="leading" type="default" id="aFK-6g-OzQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Dcz-xW-KEo" secondAttribute="trailing" constant="9" id="bTa-aC-Ry8"/>
+                            <constraint firstItem="gOA-f2-3Xe" firstAttribute="top" secondItem="qjp-0O-IE0" secondAttribute="top" constant="20" symbolic="YES" type="default" id="emH-ta-pvA"/>
+                            <constraint firstItem="gOA-f2-3Xe" firstAttribute="leading" secondItem="qjp-0O-IE0" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="qZ3-zE-oqV"/>
+                            <constraint firstItem="VAL-PO-lj5" firstAttribute="trailing" secondItem="qjp-0O-IE0" secondAttribute="trailing" type="default" id="reG-1p-Tub"/>
+                            <constraint firstItem="VAL-PO-lj5" firstAttribute="top" secondItem="qjp-0O-IE0" secondAttribute="top" constant="216" id="vLI-Pa-52g"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Today's Data" id="seZ-U5-6h8">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="sq3-LI-hIq">
+                            <connections>
+                                <segue destination="5Y3-e7-MWO" kind="unwind" unwindAction="cancel:" id="gAE-ef-J34"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Gem-Cb-nPX">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="5Y3-e7-MWO" kind="unwind" identifier="addNewDayReturn" unwindAction="done:" id="DNp-po-KLa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="chosenTemp" destination="VAL-PO-lj5" id="DW8-xb-Zyl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cyc-SB-aFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5Y3-e7-MWO" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1380" y="-590"/>
+        </scene>
+        <!--Choose Date View Controller-->
+        <scene sceneID="Ggn-ul-nCL">
+            <objects>
+                <viewController id="cDU-8W-wAL" customClass="ChooseDateViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IkN-2X-SXl">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="xg1-ha-ta4">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="Dp2-a7-m0X"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="382933800.966524">
+                                    <!--2013-02-19 02:30:00 +0000-->
                                 </date>
                                 <timeZone key="timeZone" name="America/Los_Angeles">
                                     <mutableData key="data">
@@ -68,37 +140,24 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Qqf-gp-Aiv" firstAttribute="top" secondItem="qjp-0O-IE0" secondAttribute="top" type="default" id="4zL-02-2rt"/>
-                            <constraint firstItem="VAL-PO-lj5" firstAttribute="leading" secondItem="qjp-0O-IE0" secondAttribute="leading" type="default" id="aFK-6g-OzQ"/>
-                            <constraint firstItem="Qqf-gp-Aiv" firstAttribute="leading" secondItem="qjp-0O-IE0" secondAttribute="leading" type="default" id="kbe-il-nC6"/>
-                            <constraint firstItem="Qqf-gp-Aiv" firstAttribute="trailing" secondItem="qjp-0O-IE0" secondAttribute="trailing" type="default" id="qiq-Qo-Q50"/>
-                            <constraint firstItem="VAL-PO-lj5" firstAttribute="trailing" secondItem="qjp-0O-IE0" secondAttribute="trailing" type="default" id="reG-1p-Tub"/>
-                            <constraint firstItem="VAL-PO-lj5" firstAttribute="top" secondItem="qjp-0O-IE0" secondAttribute="top" constant="216" id="vLI-Pa-52g"/>
+                            <constraint firstItem="xg1-ha-ta4" firstAttribute="trailing" secondItem="IkN-2X-SXl" secondAttribute="trailing" type="default" id="IMY-6B-RCr"/>
+                            <constraint firstItem="xg1-ha-ta4" firstAttribute="centerY" secondItem="IkN-2X-SXl" secondAttribute="centerY" type="default" id="dCF-Pq-HVf"/>
+                            <constraint firstItem="xg1-ha-ta4" firstAttribute="leading" secondItem="IkN-2X-SXl" secondAttribute="leading" type="default" id="kCT-55-itk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Today's Data" id="seZ-U5-6h8">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="sq3-LI-hIq">
+                    <navigationItem key="navigationItem" id="tCv-q2-rg3">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="CHk-gt-nRX">
                             <connections>
-                                <segue destination="5Y3-e7-MWO" kind="unwind" unwindAction="cancel:" id="gAE-ef-J34"/>
+                                <segue destination="QD6-8n-e5y" kind="unwind" identifier="noNewDay" unwindAction="cancel:" id="HD1-IL-0yf"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Gem-Cb-nPX">
-                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="5Y3-e7-MWO" kind="unwind" identifier="addNewDayReturn" unwindAction="done:" id="DNp-po-KLa"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Set Date" id="nx8-Af-pbN"/>
                     </navigationItem>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="chosenDay" destination="Qqf-gp-Aiv" id="tW4-3v-MXX"/>
-                        <outlet property="chosenTemp" destination="VAL-PO-lj5" id="DW8-xb-Zyl"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cyc-SB-aFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="5Y3-e7-MWO" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uyw-T3-gua" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QD6-8n-e5y" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1368" y="-590"/>
+            <point key="canvasLocation" x="1839" y="-590"/>
         </scene>
         <!--Data Master View Controller - Master-->
         <scene sceneID="18">
@@ -184,9 +243,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="AddDayDataViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddDayDataViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="chosenDay" candidateClass="UIDatePicker"/>
+                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="outlet" name="chosenTemp" candidateClass="UIPickerView"/>
             </relationships>
+        </class>
+        <class className="ChooseDateViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseDateViewController.h"/>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
