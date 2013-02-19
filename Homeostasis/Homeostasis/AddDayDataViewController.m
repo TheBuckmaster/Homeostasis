@@ -185,7 +185,8 @@
         ChooseDateViewController *dateChooserView = [segue destinationViewController];
         NSLog(@"The Date that is being sent is %@",self.theNewDay); 
         //This is the scary line.
-        //dateChooserView.ultimateChosenDate = self.theNewDay;
+        //dateChooserView.ulti
+        mateChosenDate = self.theNewDay;
         //NSLog(@"Sanity Check");
     }
 }
