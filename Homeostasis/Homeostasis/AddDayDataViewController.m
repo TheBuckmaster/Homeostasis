@@ -104,6 +104,18 @@
         _theNewDay = [[NSDate alloc] init];
     }
     
+    NSDateFormatter *myFormatter = [[NSDateFormatter alloc] init];
+    myFormatter.dateStyle = NSDateFormatterShortStyle; 
+    NSString *stringToShow = [[NSString alloc] init];
+    stringToShow = [myFormatter stringFromDate:self.theNewDay];
+
+    NSString *newestString = @"The date is: ";
+    newestString = [newestString stringByAppendingString:stringToShow];
+
+    _label.text = newestString;
+    
+    //@"This is a date label";
+    
     _listOfWholeTemps = [[NSMutableArray alloc] init];
     [_listOfWholeTemps addObject:@"95"];
     [_listOfWholeTemps addObject:@"96"];
@@ -171,7 +183,10 @@
     if ([[segue identifier] isEqualToString:@"pickADate"])
     {
         ChooseDateViewController *dateChooserView = [segue destinationViewController];
-        dateChooserView.ultimateChosenDate = self.theNewDay;
+        NSLog(@"The Date that is being sent is %@",self.theNewDay); 
+        //This is the scary line.
+        //dateChooserView.ultimateChosenDate = self.theNewDay;
+        //NSLog(@"Sanity Check");
     }
 }
 

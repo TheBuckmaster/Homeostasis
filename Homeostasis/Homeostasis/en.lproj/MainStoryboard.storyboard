@@ -46,10 +46,10 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cDU-8W-wAL" kind="push" identifier="pickADate" id="5nL-5g-llJ"/>
+                                    <segue destination="UEa-bs-DTn" kind="modal" identifier="pickADate" id="t9Q-2r-bsb"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gOA-f2-3Xe">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="dateLabel" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gOA-f2-3Xe">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="3WZ-u4-MZS"/>
                                 </constraints>
@@ -93,6 +93,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="chosenTemp" destination="VAL-PO-lj5" id="DW8-xb-Zyl"/>
+                        <outlet property="label" destination="gOA-f2-3Xe" id="6Ap-vM-tJ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cyc-SB-aFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -101,19 +102,19 @@
             <point key="canvasLocation" x="1380" y="-590"/>
         </scene>
         <!--Choose Date View Controller-->
-        <scene sceneID="Ggn-ul-nCL">
+        <scene sceneID="cja-Tk-bbb">
             <objects>
-                <viewController id="cDU-8W-wAL" customClass="ChooseDateViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IkN-2X-SXl">
+                <viewController id="7Lr-0a-XHl" customClass="ChooseDateViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dVj-Uy-J9X">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="xg1-ha-ta4">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BGy-X4-QGa">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="Dp2-a7-m0X"/>
+                                    <constraint firstAttribute="height" constant="216" id="7os-Ja-bGE"/>
                                 </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="382933800.966524">
-                                    <!--2013-02-19 02:30:00 +0000-->
+                                <date key="date" timeIntervalSinceReferenceDate="382989191.08772898">
+                                    <!--2013-02-19 17:53:11 +0000-->
                                 </date>
                                 <timeZone key="timeZone" name="America/Los_Angeles">
                                     <mutableData key="data">
@@ -140,24 +141,28 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xg1-ha-ta4" firstAttribute="trailing" secondItem="IkN-2X-SXl" secondAttribute="trailing" type="default" id="IMY-6B-RCr"/>
-                            <constraint firstItem="xg1-ha-ta4" firstAttribute="centerY" secondItem="IkN-2X-SXl" secondAttribute="centerY" type="default" id="dCF-Pq-HVf"/>
-                            <constraint firstItem="xg1-ha-ta4" firstAttribute="leading" secondItem="IkN-2X-SXl" secondAttribute="leading" type="default" id="kCT-55-itk"/>
+                            <constraint firstItem="BGy-X4-QGa" firstAttribute="centerY" secondItem="dVj-Uy-J9X" secondAttribute="centerY" type="default" id="3ig-hT-qU2"/>
+                            <constraint firstItem="BGy-X4-QGa" firstAttribute="trailing" secondItem="dVj-Uy-J9X" secondAttribute="trailing" type="default" id="Qhc-5Q-Tbd"/>
+                            <constraint firstItem="BGy-X4-QGa" firstAttribute="leading" secondItem="dVj-Uy-J9X" secondAttribute="leading" type="default" id="dh0-UQ-RAc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tCv-q2-rg3">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="CHk-gt-nRX">
+                    <navigationItem key="navigationItem" id="hwA-9u-HaK">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mtW-ba-j2z">
                             <connections>
-                                <segue destination="QD6-8n-e5y" kind="unwind" identifier="noNewDay" unwindAction="cancel:" id="HD1-IL-0yf"/>
+                                <segue destination="JcD-jZ-J9N" kind="unwind" identifier="noNewDate" unwindAction="cancel:" id="sAD-1S-43I"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Set Date" id="nx8-Af-pbN"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save Date" id="XLW-zb-tsD">
+                            <connections>
+                                <segue destination="JcD-jZ-J9N" kind="unwind" identifier="returnNewDate" unwindAction="done:" id="ZIq-4Y-Wv7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Uyw-T3-gua" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="QD6-8n-e5y" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2D7-ZX-rOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="JcD-jZ-J9N" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1839" y="-590"/>
+            <point key="canvasLocation" x="2384" y="-1284"/>
         </scene>
         <!--Data Master View Controller - Master-->
         <scene sceneID="18">
@@ -238,6 +243,24 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="904" y="-590"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qL9-hF-8ED">
+            <objects>
+                <navigationController id="UEa-bs-DTn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gTy-Wi-H3r">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7Lr-0a-XHl" kind="relationship" relationship="rootViewController" id="bx3-I1-6jf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Quy-lI-nR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1858" y="-1284"/>
+        </scene>
     </scenes>
     <classes>
         <class className="AddDayDataViewController" superclassName="UIViewController">
@@ -246,6 +269,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="outlet" name="chosenTemp" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="ChooseDateViewController" superclassName="UIViewController">

@@ -27,7 +27,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    _chooser.datePickerMode = UIDatePickerModeDate;
+    NSLog(@"Initial Date : %@",self.ultimateChosenDate);
+    _chooser.datePickerMode = UIDatePickerModeDateAndTime;
     [_chooser setDate:_ultimateChosenDate animated:YES];
 
 }
@@ -37,6 +38,7 @@
 {
   if ([[segue identifier] isEqualToString:@"returnWithDate"])
   {
+      NSLog(@"The assigned date is %@",self.chooser.date); 
       self.ultimateChosenDate = self.chooser.date;
     
   }

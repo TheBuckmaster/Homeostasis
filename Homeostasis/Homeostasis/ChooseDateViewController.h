@@ -11,7 +11,8 @@
 
 @interface ChooseDateViewController : UIViewController
 
-@property (strong, atomic) NSDate *ultimateChosenDate;
-@property (weak, nonatomic) UIDatePicker *chooser; 
+@property (strong, nonatomic) NSDate *ultimateChosenDate;
+
+@property (weak, nonatomic) UIDatePicker *chooser;
 
 @end

@@ -13,6 +13,9 @@
 //The Temp picker wheel.
 @property (weak, nonatomic) IBOutlet UIPickerView *chosenTemp;
 
+//A label for the date text field.
+@property (weak, nonatomic) IBOutlet UILabel *label;
+
 //Local variables for keeping correct values as different variables are changed. 
 @property NSMutableArray *listOfWholeTemps;
 @property NSMutableArray *listOfTenthTemps;
