@@ -13,6 +13,6 @@
 
 @property (strong, nonatomic) NSDate *ultimateChosenDate;
 
-@property (weak, nonatomic) UIDatePicker *chooser;
+@property (weak, nonatomic) IBOutlet UIDatePicker *chooser;
 
 @end

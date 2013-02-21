@@ -14,6 +14,8 @@
 
 @implementation ChooseDateViewController
 
+//@synthesize ultimateChosenDate;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -23,24 +25,33 @@
     return self;
 }
 
+/*
+- (void)setUltimateChosenDate:(NSDate *)ultimateChosenDate
+{
+    ultimateChosenDate = self.ultimateChosenDate;
+}
+*/
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //_chooser = [[UIDatePicker alloc] init];
+    
 	// Do any additional setup after loading the view.
-    NSLog(@"Initial Date : %@",self.ultimateChosenDate);
-    _chooser.datePickerMode = UIDatePickerModeDateAndTime;
-    [_chooser setDate:_ultimateChosenDate animated:YES];
+    self.chooser.datePickerMode = UIDatePickerModeDateAndTime;
+    [self.chooser setDate:self.ultimateChosenDate animated:YES];
 
 }
 
 
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-  if ([[segue identifier] isEqualToString:@"returnWithDate"])
+  if ([[segue identifier] isEqualToString:@"returnNewDate"])
   {
-      NSLog(@"The assigned date is %@",self.chooser.date); 
       self.ultimateChosenDate = self.chooser.date;
-    
   }
     
 }

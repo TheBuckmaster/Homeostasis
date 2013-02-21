@@ -114,6 +114,18 @@
 }
 */
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"detailView"])
+    {
+        
+    }
+    
+    
+}
+
+
 - (void)insertNewObject:(DayData *) dd
 {
     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.dataController countOfList]

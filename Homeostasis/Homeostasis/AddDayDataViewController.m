@@ -108,7 +108,6 @@
     myFormatter.dateStyle = NSDateFormatterShortStyle; 
     NSString *stringToShow = [[NSString alloc] init];
     stringToShow = [myFormatter stringFromDate:self.theNewDay];
-
     NSString *newestString = @"The date is: ";
     newestString = [newestString stringByAppendingString:stringToShow];
 
@@ -182,12 +181,9 @@
     //This is the identifier to use a custom value for the date. 
     if ([[segue identifier] isEqualToString:@"pickADate"])
     {
-        ChooseDateViewController *dateChooserView = [segue destinationViewController];
-        NSLog(@"The Date that is being sent is %@",self.theNewDay); 
-        //This is the scary line.
-        //dateChooserView.ulti
-        mateChosenDate = self.theNewDay;
-        //NSLog(@"Sanity Check");
+        ChooseDateViewController *dateChooserView = (ChooseDateViewController*)((UINavigationController *)
+         [segue destinationViewController]).topViewController;
+        [dateChooserView setUltimateChosenDate:self.theNewDay];
     }
 }
 
@@ -196,12 +192,18 @@
     if ([[segue identifier] isEqualToString:@"returnNewDate"])  
     {
         ChooseDateViewController *chooseController = [segue sourceViewController];
-        
-        NSLog(@"DateReturned");
-        NSLog(@"%@",chooseController.ultimateChosenDate); 
-        
+         
         self.theNewDay = chooseController.ultimateChosenDate;
         [self dismissViewControllerAnimated:YES completion:NULL];
+        
+        NSDateFormatter *myFormatter = [[NSDateFormatter alloc] init];
+        myFormatter.dateStyle = NSDateFormatterShortStyle;
+        NSString *stringToShow = [[NSString alloc] init];
+        stringToShow = [myFormatter stringFromDate:self.theNewDay];
+        NSString *newestString = @"The date is: ";
+        newestString = [newestString stringByAppendingString:stringToShow];
+        
+        self.label.text = newestString; 
     }
 }
 

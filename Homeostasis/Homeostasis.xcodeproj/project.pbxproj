@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3109510416D6A0E300FB4632 /* PDataDayViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3109510316D6A0E300FB4632 /* PDataDayViewerViewController.m */; };
 		316921FB16C421DC00E5FDFD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 316921FA16C421DC00E5FDFD /* UIKit.framework */; };
 		316921FD16C421DC00E5FDFD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 316921FC16C421DC00E5FDFD /* Foundation.framework */; };
 		316921FF16C421DC00E5FDFD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 316921FE16C421DC00E5FDFD /* CoreGraphics.framework */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3109510216D6A0E300FB4632 /* PDataDayViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDataDayViewerViewController.h; sourceTree = "<group>"; };
+		3109510316D6A0E300FB4632 /* PDataDayViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDataDayViewerViewController.m; sourceTree = "<group>"; };
 		316921F616C421DC00E5FDFD /* Homeostasis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homeostasis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		316921FA16C421DC00E5FDFD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		316921FC16C421DC00E5FDFD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -99,6 +102,8 @@
 				3169220A16C421DC00E5FDFD /* PDataAppDelegate.m */,
 				3169221216C421DC00E5FDFD /* MainStoryboard.storyboard */,
 				3192C4D316D3191C007165E3 /* ChooseDateViewController.h */,
+				3109510216D6A0E300FB4632 /* PDataDayViewerViewController.h */,
+				3109510316D6A0E300FB4632 /* PDataDayViewerViewController.m */,
 				3192C4D416D3191D007165E3 /* ChooseDateViewController.m */,
 				31F2E40B16C49A0B00A716C3 /* AddDayDataViewController.h */,
 				31F2E40C16C49A0B00A716C3 /* AddDayDataViewController.m */,
@@ -201,6 +206,7 @@
 				31F2E40916C48CAD00A716C3 /* DayDataDataController.m in Sources */,
 				31F2E40D16C49A0B00A716C3 /* AddDayDataViewController.m in Sources */,
 				3192C4D516D3191D007165E3 /* ChooseDateViewController.m in Sources */,
+				3109510416D6A0E300FB4632 /* PDataDayViewerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
