@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *DateDetailOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *TimeDetailOutlet;
 @property (weak, nonatomic) IBOutlet UITableViewCell *TempDetailOutlet;
+
 @property (strong, nonatomic) DayData *thatDay;
 
 @end

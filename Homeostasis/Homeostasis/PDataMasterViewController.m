@@ -11,6 +11,7 @@
 #import "DayData.h"
 #import "DayDataDataController.h"
 #import "AddDayDataViewController.h"
+#import "PDataDayViewerViewController.h"
 
 @implementation PDataMasterViewController
 
@@ -119,17 +120,18 @@
 {
     if([[segue identifier] isEqualToString:@"detailView"])
     {
-        
+        DayData *dayintended =
+        [self.dataController objectInListAtIndex:[self.tableView indexPathForSelectedRow].row];
+        PDataDayViewerViewController *dayViewer = [segue destinationViewController];
+        dayViewer.thatDay = dayintended; 
     }
-    
-
 }
 
 
 - (void)insertNewObject:(DayData *) dd
 {
-    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.dataController countOfList]
-                                                   inSection:0];
+    NSIndexPath *newIndexPath =[NSIndexPath indexPathForRow:[self.dataController countOfList]inSection:0];
+    
     [self.dataController addDayDataToList:dd];
     [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 
@@ -147,7 +149,6 @@
 {
     if ([[segue identifier] isEqualToString:@"addNewDayReturn"])
     {
-        //NSLog(@"Data Received");
         AddDayDataViewController *addController = [segue sourceViewController];
         [self insertNewObject:addController.dayOfData];
         [self dismissViewControllerAnimated:YES completion:NULL];

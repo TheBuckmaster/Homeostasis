@@ -36,6 +36,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     
+    [self setViewForthatDay];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,14 +59,25 @@
     return 3;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)setViewForthatDay
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    NSString *tempString = [[NSString alloc] init];
+    NSNumber *myNumber = [[NSNumber alloc] initWithFloat:[self.thatDay.todayTemp floatValue]]; 
+    tempString = [myNumber stringValue];
     
-    return cell;
+    NSDateFormatter *dateOutput = [[NSDateFormatter alloc] init];
+    NSDateFormatter *timeOutput = [[NSDateFormatter alloc] init];
+    
+    [dateOutput setDateStyle:NSDateFormatterShortStyle];
+    [dateOutput setTimeStyle:NSDateFormatterNoStyle];
+    
+    [timeOutput setDateStyle:NSDateFormatterNoStyle];
+    [timeOutput setTimeStyle:NSDateFormatterMediumStyle];
+    
+    self.DateDetailOutlet.text = [dateOutput stringFromDate:self.thatDay.theDay];
+    self.TimeDetailOutlet.text = [timeOutput stringFromDate:self.thatDay.theDay];
+    self.TempDetailOutlet.detailTextLabel.text = tempString;
 }
 
 /*

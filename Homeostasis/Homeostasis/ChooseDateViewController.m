@@ -14,8 +14,6 @@
 
 @implementation ChooseDateViewController
 
-//@synthesize ultimateChosenDate;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -25,12 +23,6 @@
     return self;
 }
 
-/*
-- (void)setUltimateChosenDate:(NSDate *)ultimateChosenDate
-{
-    ultimateChosenDate = self.ultimateChosenDate;
-}
-*/
 
 - (void)viewDidLoad
 {
