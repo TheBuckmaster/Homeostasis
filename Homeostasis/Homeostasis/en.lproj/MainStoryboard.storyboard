@@ -223,12 +223,13 @@
                     <navigationItem key="navigationItem" id="9yt-A4-q5m">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="I79-KF-9FZ">
                             <connections>
-                                <segue destination="0dx-TN-3mV" kind="unwind" unwindAction="done:" id="4mi-vu-6Fe"/>
+                                <segue destination="0dx-TN-3mV" kind="unwind" identifier="confirmDayReturn" unwindAction="done:" id="4mi-vu-6Fe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="DateDetailOutlet" destination="nQ1-Sw-Kbz" id="nTT-Yk-U5f"/>
+                        <outlet property="SavingOutlet" destination="sTh-nj-OoZ" id="CbM-sA-Tw4"/>
                         <outlet property="TempDetailOutlet" destination="KlJ-KU-q8I" id="BTo-2u-QpD"/>
                         <outlet property="TimeDetailOutlet" destination="B08-yF-Boc" id="baB-b4-dId"/>
                     </connections>
@@ -405,44 +406,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="1858" y="-1284"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AddDayDataViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddDayDataViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="outlet" name="chosenTemp" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ChooseDateViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseDateViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="chooser" candidateClass="UIDatePicker"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PDataDayViewerViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PDataDayViewerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="DateDetailOutlet" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="TempDetailOutlet" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="TimeDetailOutlet" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PDataMasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PDataMasterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
-            </relationships>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

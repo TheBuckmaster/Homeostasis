@@ -56,7 +56,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 3;
+    return 4;
 }
 
 - (void)setViewForthatDay
@@ -78,6 +78,23 @@
     self.DateDetailOutlet.text = [dateOutput stringFromDate:self.thatDay.theDay];
     self.TimeDetailOutlet.text = [timeOutput stringFromDate:self.thatDay.theDay];
     self.TempDetailOutlet.detailTextLabel.text = tempString;
+    
+    [self displaySaveState]; 
+    
+}
+
+- (void)displaySaveState
+{
+    if(self.thatDay.salvaMe == NO)
+    {
+        self.SavingOutlet.textLabel.textColor = [UIColor redColor];
+        self.SavingOutlet.textLabel.text = @"This record will not be saved.";
+    }
+    else
+    {
+        self.SavingOutlet.textLabel.textColor = [UIColor blackColor]; 
+        self.SavingOutlet.textLabel.text = @"This record will be saved.";
+    }
 }
 
 /*
@@ -123,13 +140,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    if(indexPath.row == 3)
+    {
+        NSLog(@"Selected Switch");
+              
+        if(self.thatDay.salvaMe)
+        {
+            [self.thatDay dontSaveThis];
+            [self.tableView reloadData]; 
+        }
+        else
+        {
+            [self.thatDay saveThis];
+            [self.tableView reloadData];
+        }
+        
+        [self displaySaveState]; 
+    }
 }
 
 @end

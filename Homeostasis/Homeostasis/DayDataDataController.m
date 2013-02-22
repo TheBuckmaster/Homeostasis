@@ -53,14 +53,29 @@
 
 - (DayData *)objectInListAtIndex:(NSUInteger)theIndex
 {
-
+    self.lastIndex = theIndex; 
     return [self.currentDataEntries objectAtIndex:theIndex];
-
 }
 - (void)addDayDataToList:(DayData *)thisDay
 {
     //NSLog(@"%@", thisDay); //So we know it's getting a valid object.
     [self.currentDataEntries addObject:thisDay];
+}
+
+
+//This function should only be called by the Master View Controller on
+//return from the inspecting segue. It modifies the last object accessed. 
+- (void)modifyObjectInListSaveState:(DayData *)dayChanged
+{
+    if(dayChanged.salvaMe == NO)
+    {
+        [[self.currentDataEntries objectAtIndex:self.lastIndex] dontSaveThis];
+    }
+    else
+    {
+        [[self.currentDataEntries objectAtIndex:self.lastIndex] saveThis];
+    }
+    
 }
 
 

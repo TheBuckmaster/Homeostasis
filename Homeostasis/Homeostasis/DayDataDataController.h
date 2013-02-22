@@ -12,9 +12,12 @@
 @interface DayDataDataController : NSObject
 @property (nonatomic,copy)NSMutableArray *currentDataEntries;
 
+//This is the index of the last array element accessed by calling
+//objectInListAtIndex
+@property NSUInteger lastIndex;
+
 - (int)countOfList;
-
 - (DayData *)objectInListAtIndex:(NSUInteger)theIndex;
-
+- (void)modifyObjectInListSaveState:(DayData *)dayChanged;
 - (void)addDayDataToList:(DayData *)thisDay;
 @end

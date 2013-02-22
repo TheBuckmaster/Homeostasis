@@ -18,5 +18,7 @@
 -(void)setToday;
 -(void)setDifferentDay:(NSDate *)thatDay;
 -(void)setTemp:(NSNumber *)aTemp;
+-(void)saveThis;
+-(void)dontSaveThis;
 
 @end

@@ -123,7 +123,8 @@
         DayData *dayintended =
         [self.dataController objectInListAtIndex:[self.tableView indexPathForSelectedRow].row];
         PDataDayViewerViewController *dayViewer = [segue destinationViewController];
-        dayViewer.thatDay = dayintended; 
+        dayViewer.thatDay = dayintended;
+
     }
 }
 
@@ -152,6 +153,14 @@
         AddDayDataViewController *addController = [segue sourceViewController];
         [self insertNewObject:addController.dayOfData];
         [self dismissViewControllerAnimated:YES completion:NULL];
+    }
+    
+    if ([[segue identifier] isEqualToString:@"confirmDayReturn"])
+    {
+        PDataDayViewerViewController *confirmController = [segue sourceViewController];
+        [[self dataController] modifyObjectInListSaveState:confirmController.thatDay];
+        [self dismissViewControllerAnimated:YES completion:NULL];
+        [[self tableView] reloadData]; 
     }
     
 }

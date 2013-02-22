@@ -46,6 +46,7 @@
     if (self)
     {
         [self setToday];
+        [self dontSaveThis]; 
         return self;
     }
     
