@@ -15,6 +15,19 @@
     _todayTemp = aTemp;
 }
 
+-(void)saveThis
+{
+    self.salvaMe = (BOOL*)TRUE;
+    //self.salvaMe = TRUE;
+    //self.salvaMe = true;
+    //self.salvaMe = YES;
+}
+
+- (void)dontSaveThis
+{
+    self.salvaMe = (BOOL*)FALSE;
+}
+
 -(void)setToday
 {
     _theDay = [NSDate date];

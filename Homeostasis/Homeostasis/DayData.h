@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSDate *theDay;
 @property (nonatomic, strong) NSNumber *todayTemp;
+@property BOOL *salvaMe;
 
 -(id)init;
 -(void)setToday;
