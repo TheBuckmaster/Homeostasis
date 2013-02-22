@@ -85,7 +85,7 @@
 
 - (void)displaySaveState
 {
-    if(self.thatDay.salvaMe == NO)
+    if([self.thatDay getSaveState] == NO)
     {
         self.SavingOutlet.textLabel.textColor = [UIColor redColor];
         self.SavingOutlet.textLabel.text = @"This record will not be saved.";
@@ -144,14 +144,14 @@
     {
         NSLog(@"Selected Switch");
               
-        if(self.thatDay.salvaMe)
+        if([self.thatDay getSaveState] == NO)
         {
-            [self.thatDay dontSaveThis];
-            [self.tableView reloadData]; 
+            [self.thatDay saveThis];
+            [self.tableView reloadData];
         }
         else
         {
-            [self.thatDay saveThis];
+            [self.thatDay dontSaveThis];
             [self.tableView reloadData];
         }
         

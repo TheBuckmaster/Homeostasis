@@ -53,7 +53,7 @@
 
 - (DayData *)objectInListAtIndex:(NSUInteger)theIndex
 {
-    self.lastIndex = theIndex; 
+    //self.lastIndex = theIndex;
     return [self.currentDataEntries objectAtIndex:theIndex];
 }
 - (void)addDayDataToList:(DayData *)thisDay
@@ -62,21 +62,21 @@
     [self.currentDataEntries addObject:thisDay];
 }
 
-
-//This function should only be called by the Master View Controller on
-//return from the inspecting segue. It modifies the last object accessed. 
-- (void)modifyObjectInListSaveState:(DayData *)dayChanged
+- (void)saveDataToDisk
 {
-    if(dayChanged.salvaMe == NO)
-    {
-        [[self.currentDataEntries objectAtIndex:self.lastIndex] dontSaveThis];
-    }
-    else
-    {
-        [[self.currentDataEntries objectAtIndex:self.lastIndex] saveThis];
-    }
+    NSLog(@"LOL SAVED SOME DATAS LOL"); 
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    // paths[0];
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:@"daysOfData.plist"];
+    NSDictionary *dictToWrite = [[NSDictionary alloc] init];
+    [dictToWrite dictionaryWithValuesForKeys:self.currentDataEntries];
+    [dictToWrite writeToFile:plistPath atomically:YES];
     
 }
+
+
 
 
 @end

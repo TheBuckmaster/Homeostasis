@@ -10,9 +10,24 @@
 
 @implementation DayData
 
+
 -(void)setTemp:(NSNumber *)aTemp
 {
     _todayTemp = aTemp;
+}
+
+-(BOOL*)getSaveState
+{
+    return self.salvaMe;
+}
+
+-(void)flipSaveState
+{
+    if(self.salvaMe == NO)
+        [self saveThis];
+    else
+        [self dontSaveThis];
+
 }
 
 -(void)saveThis

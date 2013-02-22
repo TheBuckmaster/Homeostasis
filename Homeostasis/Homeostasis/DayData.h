@@ -14,11 +14,13 @@
 @property (nonatomic, strong) NSNumber *todayTemp;
 @property BOOL *salvaMe;
 
+-(BOOL*)getSaveState;
 -(id)init;
 -(void)setToday;
 -(void)setDifferentDay:(NSDate *)thatDay;
 -(void)setTemp:(NSNumber *)aTemp;
 -(void)saveThis;
 -(void)dontSaveThis;
+-(void)flipSaveState;
 
 @end

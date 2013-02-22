@@ -124,6 +124,10 @@
         [self.dataController objectInListAtIndex:[self.tableView indexPathForSelectedRow].row];
         PDataDayViewerViewController *dayViewer = [segue destinationViewController];
         dayViewer.thatDay = dayintended;
+        if([dayintended getSaveState] == NO)
+            NSLog(@"NotToSave");
+        else
+            NSLog(@"ToSave"); 
 
     }
 }
@@ -146,6 +150,12 @@
     }
 }
 
+
+- (IBAction)saveData:(id)sender {
+    NSLog(@"Save Data");
+    [self.dataController saveDataToDisk]; 
+}
+
 - (IBAction)done:(UIStoryboardSegue *)segue
 {
     if ([[segue identifier] isEqualToString:@"addNewDayReturn"])
@@ -157,8 +167,8 @@
     
     if ([[segue identifier] isEqualToString:@"confirmDayReturn"])
     {
-        PDataDayViewerViewController *confirmController = [segue sourceViewController];
-        [[self dataController] modifyObjectInListSaveState:confirmController.thatDay];
+        //PDataDayViewerViewController *confirmController = [segue sourceViewController];
+        //[[self dataController] modifyObjectInListSaveState:confirmController.thatDay];
         [self dismissViewControllerAnimated:YES completion:NULL];
         [[self tableView] reloadData]; 
     }
