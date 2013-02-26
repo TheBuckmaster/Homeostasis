@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *chosenTemp;
 
 //A label for the date text field.
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UILabel *DateLabelOutlet;
 
 //Local variables for keeping correct values as different variables are changed. 
 @property NSMutableArray *listOfWholeTemps;
@@ -25,9 +25,10 @@
 @property NSNumber *wholeAndPartTemp;
 
 //A Local Date to coordinate with the next view if Today is not correct.
+//This is passed to the DateChooserViewController object on segue. 
 @property (strong, atomic) NSDate *theNewDay;
 
-//-(IBAction)done:(UIStoryboardSegue*)sender;
+-(IBAction)done:(UIStoryboardSegue*)sender;
 -(IBAction)cancel:(UIStoryboardSegue*)sender;
 
 //The "Return Value" object for the done: segue. 

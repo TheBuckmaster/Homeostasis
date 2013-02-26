@@ -103,6 +103,10 @@
     {
         _theNewDay = [[NSDate alloc] init];
     }
+    if(!self.dayOfData)
+    {
+        self.dayOfData = [[DayData alloc]init];
+    }
     
     
     //This block tells the label to display "The date is: ##/##/##"
@@ -156,16 +160,14 @@
         //This is the configuration to move on to the next view.
     if([[segue identifier] isEqualToString:@"toStep2"])
     {
-        //In this block, we create and define a new DayData object to pass/return. 
-        DayData *brandNewDay;
-        brandNewDay = [[DayData alloc] init];
+
         //Using the local variable (NSDate) _theNewDay, set the date to pass/return.
-        [brandNewDay setDifferentDay:self.theNewDay];
+        [self.dayOfData setDifferentDay:self.theNewDay];
         //Using information passed from the TempPicker, we set the temp field. 
-        [brandNewDay setTodayTemp:self.wholeAndPartTemp];
+        [self.dayOfData setTodayTemp:self.wholeAndPartTemp];
     
         AddDayDataStep2ViewController *nextStepViewer = [segue destinationViewController];
-        nextStepViewer.dayOfData = brandNewDay; 
+        nextStepViewer.dayOfData = self.dayOfData; 
 
     }
     
@@ -192,7 +194,8 @@
     
     else
     {
-        
+        AddDayDataStep2ViewController *add2Controller = [segue sourceViewController];
+        self.dayOfData = add2Controller.dayOfData; 
     }
 }
 
@@ -218,7 +221,7 @@
     stringToShow = [myFormatter stringFromDate:self.theNewDay];
     NSString *newestString = @"The date is: ";
     newestString = [newestString stringByAppendingString:stringToShow];
-    self.label.text = newestString;
+    self.DateLabelOutlet.text = newestString;
     
 }
 

@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self.feelingOutput setValue:[self.dayOfData.feelingLevel floatValue] animated:YES]; 
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,10 +41,7 @@
     if([[segue identifier] isEqualToString:@"addNewDayReturn"])
     {
         
-        NSNumber *f = [[NSNumber alloc]initWithFloat:self.feelingOutput.value];
-        [self.dayOfData setFeelingLevel:f];
-        
-        
+        [self newFeelValue:self.feelingOutput.value];
         //Finally, on a segue, we'll return this data member to the Master View Controller.
         // e.g. self.dayOfData = something new. 
         //NSLog(@"Sending Data");
@@ -52,6 +50,17 @@
 
 }
 
+- (void)newFeelValue:(float)f
+{
+    NSNumber *newF = [[NSNumber alloc]initWithFloat:f];
+    [self.dayOfData setFeelingLevel:newF];
+}
 
 
+- (IBAction)feelValueChanged:(id)sender
+{
+    
+    NSLog(@"slider value = %f",self.feelingOutput.value);
+    [self newFeelValue:self.feelingOutput.value]; 
+}
 @end

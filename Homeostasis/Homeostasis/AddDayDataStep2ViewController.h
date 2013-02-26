@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *CoughOutlet;
 @property (weak, nonatomic) IBOutlet UISlider *feelingOutput;
 
+- (IBAction)feelValueChanged:(id)sender;
 
 //The "Return Value" object for the done: segue.
 @property (strong,atomic) DayData *dayOfData;
