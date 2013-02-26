@@ -62,18 +62,35 @@
     [self.currentDataEntries addObject:thisDay];
 }
 
+
+//This function will save all data marked for saving to file.
+//In particular, it will be saved in DocumentsDirectory/daysOfData.plist"
 - (void)saveDataToDisk
 {
-    NSLog(@"LOL SAVED SOME DATAS LOL"); 
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    // paths[0];
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:@"daysOfData.plist"];
-    NSDictionary *dictToWrite = [[NSDictionary alloc] init];
-    [dictToWrite dictionaryWithValuesForKeys:self.currentDataEntries];
-    [dictToWrite writeToFile:plistPath atomically:YES];
+    NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:@"daysOfData.plist"];
+    NSMutableArray *savingList = [[NSMutableArray alloc] init];
     
+    for (DayData *d in self.currentDataEntries) {
+        if(!(d.getSaveState == NO))
+            [savingList addObject:d];
+    }
+    
+    [NSKeyedArchiver archiveRootObject:savingList toFile:fullPath];
+    
+    
+}
+
+- (void)loadDataFromDisk
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fullpath = [documentsDirectory stringByAppendingPathComponent:@"daysOfData.plist"];
+    NSMutableArray *arrayFromPath = [NSKeyedUnarchiver unarchiveObjectWithFile:fullpath];
+    self.currentDataEntries = [[NSMutableArray alloc] initWithArray:arrayFromPath];
+    NSLog(@"CDE has %d",self.countOfList); 
 }
 
 

@@ -104,16 +104,10 @@
         _theNewDay = [[NSDate alloc] init];
     }
     
-    NSDateFormatter *myFormatter = [[NSDateFormatter alloc] init];
-    myFormatter.dateStyle = NSDateFormatterShortStyle; 
-    NSString *stringToShow = [[NSString alloc] init];
-    stringToShow = [myFormatter stringFromDate:self.theNewDay];
-    NSString *newestString = @"The date is: ";
-    newestString = [newestString stringByAppendingString:stringToShow];
-
-    _label.text = newestString;
     
-    //@"This is a date label";
+    //This block tells the label to display "The date is: ##/##/##"
+    //It is also called if the date is changed by the user. 
+    [self showDateOnLabel];
     
     _listOfWholeTemps = [[NSMutableArray alloc] init];
     [_listOfWholeTemps addObject:@"95"];
@@ -156,26 +150,23 @@
     
 }
 
-
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //This is the identifier to return the newly created DayData object
-    //back to the MasterViewController to display it. 
-    if([[segue identifier] isEqualToString:@"addNewDayReturn"])
+
+        //This is the configuration to move on to the next view.
+    if([[segue identifier] isEqualToString:@"toStep2"])
     {
-        //In this block, we create and define a new DayData object to return. 
+        //In this block, we create and define a new DayData object to pass/return. 
         DayData *brandNewDay;
         brandNewDay = [[DayData alloc] init];
-        
-        //Using the local variable (NSDate) _theNewDay, set the date to return.
+        //Using the local variable (NSDate) _theNewDay, set the date to pass/return.
         [brandNewDay setDifferentDay:self.theNewDay];
         //Using information passed from the TempPicker, we set the temp field. 
         [brandNewDay setTodayTemp:self.wholeAndPartTemp];
-        
-        //Finally, on a segue, we'll return this data member to the Master View Controller. 
-        //NSLog(@"Sending Data");
-        self.dayOfData = brandNewDay;
+    
+        AddDayDataStep2ViewController *nextStepViewer = [segue destinationViewController];
+        nextStepViewer.dayOfData = brandNewDay; 
+
     }
     
     //This is the identifier to use a custom value for the date. 
@@ -196,14 +187,12 @@
         self.theNewDay = chooseController.ultimateChosenDate;
         [self dismissViewControllerAnimated:YES completion:NULL];
         
-        NSDateFormatter *myFormatter = [[NSDateFormatter alloc] init];
-        myFormatter.dateStyle = NSDateFormatterShortStyle;
-        NSString *stringToShow = [[NSString alloc] init];
-        stringToShow = [myFormatter stringFromDate:self.theNewDay];
-        NSString *newestString = @"The date is: ";
-        newestString = [newestString stringByAppendingString:stringToShow];
+        [self showDateOnLabel];
+    }
+    
+    else
+    {
         
-        self.label.text = newestString; 
     }
 }
 
@@ -219,6 +208,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)showDateOnLabel
+{
+    NSDateFormatter *myFormatter = [[NSDateFormatter alloc] init];
+    myFormatter.dateStyle = NSDateFormatterShortStyle;
+    NSString *stringToShow = [[NSString alloc] init];
+    stringToShow = [myFormatter stringFromDate:self.theNewDay];
+    NSString *newestString = @"The date is: ";
+    newestString = [newestString stringByAppendingString:stringToShow];
+    self.label.text = newestString;
+    
 }
 
 @end

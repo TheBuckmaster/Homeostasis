@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddDayDataStep2ViewController.h"
 @class DayData;
 @interface AddDayDataViewController : UIViewController
 
@@ -26,7 +27,7 @@
 //A Local Date to coordinate with the next view if Today is not correct.
 @property (strong, atomic) NSDate *theNewDay;
 
--(IBAction)done:(UIStoryboardSegue*)sender;
+//-(IBAction)done:(UIStoryboardSegue*)sender;
 -(IBAction)cancel:(UIStoryboardSegue*)sender;
 
 //The "Return Value" object for the done: segue. 

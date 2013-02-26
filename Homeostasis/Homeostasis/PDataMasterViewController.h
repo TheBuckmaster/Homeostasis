@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonTap;
 - (IBAction)saveData:(id)sender;
 
-
+- (IBAction)saveNewItem:(UIStoryboardSegue *)segue; 
 - (IBAction)done:(UIStoryboardSegue *)segue;
 - (IBAction)cancel:(UIStoryboardSegue *)segue;
 

@@ -15,6 +15,6 @@
 - (int)countOfList;
 - (DayData *)objectInListAtIndex:(NSUInteger)theIndex;
 - (void)addDayDataToList:(DayData *)thisDay;
-
 - (void)saveDataToDisk;
+- (void)loadDataFromDisk;
 @end

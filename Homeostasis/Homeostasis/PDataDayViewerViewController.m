@@ -56,7 +56,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 4;
+    return 6;
 }
 
 - (void)setViewForthatDay
@@ -78,6 +78,52 @@
     self.DateDetailOutlet.text = [dateOutput stringFromDate:self.thatDay.theDay];
     self.TimeDetailOutlet.text = [timeOutput stringFromDate:self.thatDay.theDay];
     self.TempDetailOutlet.detailTextLabel.text = tempString;
+    
+    NSLog(@"Feel = %f",self.thatDay.feelingLevel.floatValue);
+    
+    NSString *feelString = [[NSString alloc]init];
+    
+    feelString = @"blegh";
+    
+    
+    if([self.thatDay.feelingLevel floatValue] < 1.0)
+        feelString = @"Gross";
+    else
+    {
+        if([self.thatDay.feelingLevel floatValue] < 2.0)
+        {
+            feelString = @"Poor";
+        }
+        else
+        {
+            if([self.thatDay.feelingLevel floatValue] < 3.0)
+            {
+                feelString = @"Mediocre";
+            }
+            else
+            {
+                if([self.thatDay.feelingLevel floatValue ] < 4.0)
+                {
+                    feelString = @"Meh";
+                }
+                else
+                {
+                    if([self.thatDay.feelingLevel floatValue] < 5.0)
+                    {
+                        feelString = @"Good";
+                    }
+                    else
+                    {
+                        feelString = @"Great!";
+                    }
+                }
+            }
+        }
+    }
+    
+    NSLog(@" %@",feelString); 
+    self.FeelDetailOutlet.text = feelString;
+    self.CoughOutlet.text = @"Yes"; 
     
     [self displaySaveState]; 
     
@@ -140,22 +186,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 3)
+    if(indexPath.row == 5)
     {
-        NSLog(@"Selected Switch");
+        //NSLog(@"Selected Switch");
               
         if([self.thatDay getSaveState] == NO)
         {
             [self.thatDay saveThis];
-            [self.tableView reloadData];
+            //[self.tableView reloadData];
         }
         else
         {
             [self.thatDay dontSaveThis];
-            [self.tableView reloadData];
+            //[self.tableView reloadData];
         }
         
-        [self displaySaveState]; 
+        [self displaySaveState];
     }
 }
 

@@ -26,7 +26,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
+    [self.dataController loadDataFromDisk];
+    [self.tableView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,6 +55,11 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     DayData *object = [self.dataController objectInListAtIndex:indexPath.row];
+    
+    if(![[self.dataController objectInListAtIndex:indexPath.row] getSaveState] == NO)
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    else
+        cell.accessoryType = UITableViewCellAccessoryNone; 
     
     //Perhaps we want to do something particular if the user reports a particularly high temp.
     //This variable specifies a value above which the text will turn red. 
@@ -124,10 +131,6 @@
         [self.dataController objectInListAtIndex:[self.tableView indexPathForSelectedRow].row];
         PDataDayViewerViewController *dayViewer = [segue destinationViewController];
         dayViewer.thatDay = dayintended;
-        if([dayintended getSaveState] == NO)
-            NSLog(@"NotToSave");
-        else
-            NSLog(@"ToSave"); 
 
     }
 }
@@ -150,6 +153,12 @@
     }
 }
 
+- (IBAction)saveNewItem:(UIStoryboardSegue *)segue
+{
+    AddDayDataStep2ViewController *addController = [segue sourceViewController];
+    [self insertNewObject:addController.dayOfData];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 
 - (IBAction)saveData:(id)sender {
     NSLog(@"Save Data");
@@ -158,12 +167,6 @@
 
 - (IBAction)done:(UIStoryboardSegue *)segue
 {
-    if ([[segue identifier] isEqualToString:@"addNewDayReturn"])
-    {
-        AddDayDataViewController *addController = [segue sourceViewController];
-        [self insertNewObject:addController.dayOfData];
-        [self dismissViewControllerAnimated:YES completion:NULL];
-    }
     
     if ([[segue identifier] isEqualToString:@"confirmDayReturn"])
     {
