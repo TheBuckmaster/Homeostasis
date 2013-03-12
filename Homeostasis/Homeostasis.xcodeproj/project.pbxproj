@@ -22,6 +22,7 @@
 		3169221716C421DC00E5FDFD /* PDataMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3169221616C421DC00E5FDFD /* PDataMasterViewController.m */; };
 		3169222216C4223F00E5FDFD /* DayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3169222116C4223F00E5FDFD /* DayData.m */; };
 		3192C4D516D3191D007165E3 /* ChooseDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3192C4D416D3191D007165E3 /* ChooseDateViewController.m */; };
+		31E7FD5516EF92320014540B /* PDataAddNewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E7FD5416EF92320014540B /* PDataAddNewItemViewController.m */; };
 		31F2E40916C48CAD00A716C3 /* DayDataDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F2E40816C48CAD00A716C3 /* DayDataDataController.m */; };
 		31F2E40D16C49A0B00A716C3 /* AddDayDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F2E40C16C49A0B00A716C3 /* AddDayDataViewController.m */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,8 @@
 		3169222116C4223F00E5FDFD /* DayData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayData.m; sourceTree = "<group>"; };
 		3192C4D316D3191C007165E3 /* ChooseDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDateViewController.h; sourceTree = "<group>"; };
 		3192C4D416D3191D007165E3 /* ChooseDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDateViewController.m; sourceTree = "<group>"; };
+		31E7FD5316EF92320014540B /* PDataAddNewItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDataAddNewItemViewController.h; sourceTree = "<group>"; };
+		31E7FD5416EF92320014540B /* PDataAddNewItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDataAddNewItemViewController.m; sourceTree = "<group>"; };
 		31F2E40716C48CAD00A716C3 /* DayDataDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayDataDataController.h; sourceTree = "<group>"; };
 		31F2E40816C48CAD00A716C3 /* DayDataDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayDataDataController.m; sourceTree = "<group>"; };
 		31F2E40B16C49A0B00A716C3 /* AddDayDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDayDataViewController.h; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				3169220916C421DC00E5FDFD /* PDataAppDelegate.h */,
 				3169220A16C421DC00E5FDFD /* PDataAppDelegate.m */,
 				3169221216C421DC00E5FDFD /* MainStoryboard.storyboard */,
+				31E7FD5316EF92320014540B /* PDataAddNewItemViewController.h */,
+				31E7FD5416EF92320014540B /* PDataAddNewItemViewController.m */,
 				3192C4D316D3191C007165E3 /* ChooseDateViewController.h */,
 				3192C4D416D3191D007165E3 /* ChooseDateViewController.m */,
 				3109510216D6A0E300FB4632 /* PDataDayViewerViewController.h */,
@@ -213,6 +218,7 @@
 				3192C4D516D3191D007165E3 /* ChooseDateViewController.m in Sources */,
 				3109510416D6A0E300FB4632 /* PDataDayViewerViewController.m in Sources */,
 				3135A11716DC5653005D79F7 /* AddDayDataStep2ViewController.m in Sources */,
+				31E7FD5516EF92320014540B /* PDataAddNewItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
