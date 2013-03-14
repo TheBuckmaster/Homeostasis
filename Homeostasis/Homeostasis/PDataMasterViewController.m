@@ -12,6 +12,8 @@
 #import "DayDataDataController.h"
 #import "AddDayDataViewController.h"
 #import "PDataDayViewerViewController.h"
+#import "PDataAddNewItemViewController.h"
+#import "PDataAddNewDataStep2Controller.h"
 
 @implementation PDataMasterViewController
 
@@ -155,8 +157,14 @@
 
 - (IBAction)saveNewItem:(UIStoryboardSegue *)segue
 {
+    /*
     AddDayDataStep2ViewController *addController = [segue sourceViewController];
     [self insertNewObject:addController.dayOfData];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+     */
+    
+    PDataAddNewDataStep2Controller *addController = [segue sourceViewController];
+    [self insertNewObject:addController.theDay]; 
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 

@@ -9,11 +9,9 @@
 #import "PDataAddNewItemViewController.h"
 #import "DayData.h"
 #import "ChooseDateViewController.h"
+#import "PDataAddNewDataStep2Controller.h"
 
 @interface PDataAddNewItemViewController()
-{
-
-}
 
 @end
 
@@ -38,16 +36,15 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    self.chosenTemp.dataSource = self;
+    self.chosenTemp.delegate = self; 
+    
     if(!self.theDay)
     {
         self.theDay = [[DayData alloc]init];
     }
 
-    NSDateFormatter *theFormatter = [[NSDateFormatter alloc]init];
-    [theFormatter setDateStyle:NSDateFormatterShortStyle];
-    [theFormatter setTimeStyle:NSDateFormatterNoStyle];
-    
-    self.dateCell.textLabel.text = [theFormatter stringFromDate:self.theDay.theDay]; 
+    [self updateDate];
     
     //Values for part of temp storage.
     _wholePart = [[NSNumber alloc] init];
@@ -115,6 +112,64 @@
     return 1;
 }
 
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
+{
+    return 2;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    
+    //For The First Column
+    if(component == 0)
+        return [_listOfWholeTemps count];
+    else
+        //(component == 1)
+        //For the Second Column
+        return [_listOfTenthTemps count];
+    
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    
+    
+    //For First Column
+    if(component == 0)
+        return [_listOfWholeTemps objectAtIndex:row];
+    
+    //For Second Column
+    else//(component == 1)
+        return [_listOfTenthTemps objectAtIndex:row];
+}
+
+
+
+- (void)pickerView:(UIPickerView*)chosenTemp didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+    //NSLog(@"Selected an Item at");
+    //NSLog(@"row: %d component: %d ",row,component);
+    
+    NSString *first;    //These are clarity strings.
+    NSString *second;   //They made life much easier.
+    
+    
+    if(component == 0)
+    {
+        first = [self.listOfWholeTemps objectAtIndex:row];
+        self.wholePart = [[NSNumber alloc]initWithInt:[first intValue]];
+        
+    }
+    if(component == 1)
+    {
+        second = [self.listOfTenthTemps objectAtIndex:row];
+        self.fractionalPart = [[NSNumber alloc] initWithFloat:[second floatValue]];
+        //NSLog(@"Fraction:%@",fractionalPart);
+    }
+    
+    float newFloat = [self.wholePart intValue] + [self.fractionalPart floatValue];
+    self.wholeAndPartTemp = [[NSNumber alloc] initWithFloat:newFloat];
+    
+}
 
 
 #pragma mark - Table view delegate
@@ -132,8 +187,59 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //Something of Some Type = [segue destinationViewController];
-    //Pass the current working day. 
+    if ([[segue identifier] isEqualToString:@"nextStep"])
+    {
+        self.theDay.todayTemp = self.wholeAndPartTemp; 
+        //NSLog(@"To the next Step!");
+        PDataAddNewDataStep2Controller *newView = [segue destinationViewController];
+        newView.theDay = self.theDay;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"pickTheDate"])
+    {
+        NSLog(@"Pick the date!");
+        ChooseDateViewController *dateView = (ChooseDateViewController*)((UINavigationController*)[segue destinationViewController]).topViewController;
+        dateView.ultimateChosenDate = self.theDay.theDay; 
+    }
+}
+
+- (IBAction)done:(UIStoryboardSegue *)segue
+{
+    if ([[segue identifier] isEqualToString:@"returnNewDate"])
+    {
+        ChooseDateViewController *chooseController = [segue sourceViewController];
+        
+        self.theDay.theDay = chooseController.ultimateChosenDate;
+        [self dismissViewControllerAnimated:YES completion:NULL];
+        
+        NSLog(@" %@ ", self.theDay.theDay); 
+        [self updateDate];
+    }
+    
+    else
+    {
+        //AddDayDataStep2ViewController *add2Controller = [segue sourceViewController];
+        //self.dayOfData = add2Controller.dayOfData;
+    }
+
+}
+
+- (void)updateDate
+{
+    NSDateFormatter *theFormatter = [[NSDateFormatter alloc]init];
+    [theFormatter setDateStyle:NSDateFormatterShortStyle];
+    [theFormatter setTimeStyle:NSDateFormatterNoStyle];
+    
+    self.dateCell.textLabel.text = [theFormatter stringFromDate:self.theDay.theDay];
+}
+
+- (IBAction)cancel:(UIStoryboardSegue *)sender
+{
+    if([[sender identifier] isEqualToString:@"noNewDate"])
+    {
+        [self dismissViewControllerAnimated:YES completion:NULL];
+        
+    }
 }
 
 @end

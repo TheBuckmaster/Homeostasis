@@ -84,8 +84,6 @@
     NSString *feelString = [[NSString alloc]init];
     
     feelString = @"blegh";
-    
-    
     if([self.thatDay.feelingLevel floatValue] < 1.0)
         feelString = @"Gross";
     else
@@ -123,7 +121,11 @@
     
     NSLog(@" %@",feelString); 
     self.FeelDetailOutlet.text = feelString;
-    self.CoughOutlet.text = @"Yes"; 
+    
+    if(self.thatDay.cough)
+        self.CoughOutlet.text = @"Yes";
+    else
+        self.CoughOutlet.text = @"No"; 
     
     [self displaySaveState]; 
     

@@ -9,7 +9,7 @@
 #import "DayData.h"
 
 @implementation DayData
-@synthesize theDay, todayTemp, salvaMe, feelingLevel; 
+@synthesize theDay, todayTemp, salvaMe, feelingLevel, cough;
 
 -(void)setTemp:(NSNumber *)aTemp
 {
@@ -78,17 +78,36 @@
     [encoder encodeObject:theDay forKey:@"day"];
     [encoder encodeObject:todayTemp forKey:@"temp"];
     [encoder encodeObject:feelingLevel forKey:@"feel"];
+    NSNumber *coughNumber = [[NSNumber alloc]initWithBool:cough];
+    [encoder encodeObject:coughNumber forKey:@"cough"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder{
     if (self = [super init]) {
         self.theDay = [decoder decodeObjectForKey:@"day"];
         self.todayTemp = [decoder decodeObjectForKey:@"temp"];
-        self.feelingLevel = [decoder decodeObjectForKey:@"feel"]; 
+        self.feelingLevel = [decoder decodeObjectForKey:@"feel"];
+        NSNumber *coughNumber = [decoder decodeObjectForKey:@"cough"];
+        self.cough = [coughNumber boolValue];
+        
         [self saveThis];
     }
     return self; 
 }
 
+- (void)sayHasCough
+{
+    self.cough = YES;
+}
+
+- (void)sayHasNoCough
+{
+    self.cough = NO;
+}
+
+- (BOOL)hasCough
+{
+    return self.cough;
+}
 
 @end

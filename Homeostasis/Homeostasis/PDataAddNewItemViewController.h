@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @class DayData;
-@class ChooseDateViewController; 
-@interface PDataAddNewItemViewController : UITableViewController
+//@class ChooseDateViewController;
+@interface PDataAddNewItemViewController : UITableViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITableViewCell *dateCell;
+
 @property (weak, nonatomic) IBOutlet UIPickerView *chosenTemp;
+
 @property (strong, atomic) DayData* theDay;
 
 @property NSMutableArray *listOfWholeTemps;

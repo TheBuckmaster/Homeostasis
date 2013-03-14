@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @class DayData;
 @class DayDataDataController;
+@class PDataAddNewDataStep2Controller;
 @interface PDataMasterViewController : UITableViewController
 @property (strong, nonatomic) DayDataDataController *dataController;
 @property (weak, nonatomic) IBOutlet UIButton *buttonTap;
