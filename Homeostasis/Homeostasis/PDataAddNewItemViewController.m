@@ -197,7 +197,7 @@
     
     if ([[segue identifier] isEqualToString:@"pickTheDate"])
     {
-        NSLog(@"Pick the date!");
+        //NSLog(@"Pick the date!");
         ChooseDateViewController *dateView = (ChooseDateViewController*)((UINavigationController*)[segue destinationViewController]).topViewController;
         dateView.ultimateChosenDate = self.theDay.theDay; 
     }
@@ -212,7 +212,7 @@
         self.theDay.theDay = chooseController.ultimateChosenDate;
         [self dismissViewControllerAnimated:YES completion:NULL];
         
-        NSLog(@" %@ ", self.theDay.theDay); 
+        //NSLog(@" %@ ", self.theDay.theDay);
         [self updateDate];
     }
     

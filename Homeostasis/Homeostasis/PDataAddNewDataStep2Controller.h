@@ -11,15 +11,29 @@
 
 @interface PDataAddNewDataStep2Controller : UITableViewController
 
+//This is the record day of data to be added. 
 @property (strong, atomic) DayData *theDay;
-@property (weak, nonatomic) IBOutlet UISlider *feelingSlider;
-- (IBAction)changedValue:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIButton *yesButton;
-@property (weak, nonatomic) IBOutlet UIButton *noButton;
+//Does the user have a cough? Defaults to NO.
 @property bool hasCough;
+
+//Does the user have body aches? Defaults to NO.
+//@property bool hasBodyAche;
+
+//The buttons and slider for reference.
+@property (weak, nonatomic) IBOutlet UISlider *feelingSlider;
+@property (weak, nonatomic) IBOutlet UIButton *coughYesButton;
+@property (weak, nonatomic) IBOutlet UIButton *coughNoButton;
+//@property (weak, nonatomic) IBOutlet UIButton *baYesButton;
+//@property (weak, nonatomic) IBOutlet UIButton *baNoButton;
+
+//The actions when users click a button or adjust the slider. 
 - (IBAction)coughYes:(id)sender;
 - (IBAction)coughNo:(id)sender;
-
+- (IBAction)changedValue:(id)sender;
+/*
+- (IBAction)bodyAcheYes:(id)sender;
+- (IBAction)bodyAcheNo:(id)sender;
+*/
 
 @end

@@ -31,6 +31,9 @@
     [self.dataController loadDataFromDisk];
     [self.tableView reloadData];
     
+    UIApplication *app = [UIApplication sharedApplication];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:)name:UIApplicationDidEnterBackgroundNotification object:app];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,10 +61,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     DayData *object = [self.dataController objectInListAtIndex:indexPath.row];
     
-    if(![[self.dataController objectInListAtIndex:indexPath.row] getSaveState] == NO)
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    else
-        cell.accessoryType = UITableViewCellAccessoryNone; 
+    cell.accessoryType = UITableViewCellAccessoryNone; 
     
     //Perhaps we want to do something particular if the user reports a particularly high temp.
     //This variable specifies a value above which the text will turn red. 
@@ -103,6 +103,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.dataController.currentDataEntries removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.dataController saveDataToDisk];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
@@ -112,6 +113,7 @@
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    
 }
 */
 
@@ -141,7 +143,6 @@
 - (void)insertNewObject:(DayData *) dd
 {
     NSIndexPath *newIndexPath =[NSIndexPath indexPathForRow:[self.dataController countOfList]inSection:0];
-    
     [self.dataController addDayDataToList:dd];
     [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 
@@ -156,34 +157,33 @@
 }
 
 - (IBAction)saveNewItem:(UIStoryboardSegue *)segue
-{
-    /*
-    AddDayDataStep2ViewController *addController = [segue sourceViewController];
-    [self insertNewObject:addController.dayOfData];
-    [self dismissViewControllerAnimated:YES completion:NULL];
-     */
-    
+{   
     PDataAddNewDataStep2Controller *addController = [segue sourceViewController];
     [self insertNewObject:addController.theDay]; 
     [self dismissViewControllerAnimated:YES completion:NULL];
+    [self.dataController saveDataToDisk];
 }
 
-- (IBAction)saveData:(id)sender {
-    NSLog(@"Save Data");
-    [self.dataController saveDataToDisk]; 
-}
 
 - (IBAction)done:(UIStoryboardSegue *)segue
 {
     
     if ([[segue identifier] isEqualToString:@"confirmDayReturn"])
     {
-        //PDataDayViewerViewController *confirmController = [segue sourceViewController];
-        //[[self dataController] modifyObjectInListSaveState:confirmController.thatDay];
         [self dismissViewControllerAnimated:YES completion:NULL];
-        [[self tableView] reloadData]; 
+        [[self tableView] reloadData];
+        //[self.dataController saveDataToDisk];
     }
     
 }
+
+- (void)applicationDidEnterBackground:(NSNotification *) notification{
+
+    //[self.dataController saveDataToDisk];
+}
+
+
+
+
 
 @end

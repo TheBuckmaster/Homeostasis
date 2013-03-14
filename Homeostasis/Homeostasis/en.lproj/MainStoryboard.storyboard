@@ -304,9 +304,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="coughNoButton" destination="Yxn-5e-jgn" id="v0W-fM-FtW"/>
+                        <outlet property="coughYesButton" destination="R6f-qi-ikT" id="iBF-Z7-7A1"/>
                         <outlet property="feelingSlider" destination="xhz-Ov-lKD" id="ezT-LC-fi3"/>
-                        <outlet property="noButton" destination="Yxn-5e-jgn" id="0H4-VG-YZb"/>
-                        <outlet property="yesButton" destination="R6f-qi-ikT" id="SO8-1K-MoW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCS-oO-13K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -532,7 +532,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="coughCell" textLabel="06F-DO-dZ3" detailTextLabel="kHa-gD-5NA" style="IBUITableViewCellStyleValue2" id="cgX-1e-4YS">
-                                        <rect key="frame" x="0.0" y="187" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="187" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -550,31 +550,6 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SaveCell" textLabel="e7d-oa-asj" style="IBUITableViewCellStyleDefault" id="sTh-nj-OoZ">
-                                        <rect key="frame" x="0.0" y="231" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e7d-oa-asj">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="This record will be saved. ">
-                                                            <attributes>
-                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <font key="NSFont" size="17" name="Helvetica"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
@@ -600,7 +575,6 @@
                         <outlet property="CoughOutlet" destination="kHa-gD-5NA" id="Hup-1c-dIg"/>
                         <outlet property="DateDetailOutlet" destination="nQ1-Sw-Kbz" id="nTT-Yk-U5f"/>
                         <outlet property="FeelDetailOutlet" destination="Y3r-Ks-ub7" id="xeb-Ul-9Iy"/>
-                        <outlet property="SavingOutlet" destination="sTh-nj-OoZ" id="CbM-sA-Tw4"/>
                         <outlet property="TempDetailOutlet" destination="KlJ-KU-q8I" id="BTo-2u-QpD"/>
                         <outlet property="TimeDetailOutlet" destination="B08-yF-Boc" id="baB-b4-dId"/>
                     </connections>
@@ -650,8 +624,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="BGy-X4-QGa" firstAttribute="top" secondItem="dVj-Uy-J9X" secondAttribute="top" type="default" id="7fG-ZI-dTr"/>
                             <constraint firstItem="BGy-X4-QGa" firstAttribute="centerX" secondItem="dVj-Uy-J9X" secondAttribute="centerX" type="default" id="N8w-1j-VpB"/>
-                            <constraint firstItem="BGy-X4-QGa" firstAttribute="top" secondItem="dVj-Uy-J9X" secondAttribute="top" constant="20" symbolic="YES" type="default" id="nsn-6k-tQf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hwA-9u-HaK">
@@ -683,21 +657,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DNg-JL-nMW">
-                            <rect key="frame" x="0.0" y="66" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" title="Save Data">
-                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="saveData:" destination="12" eventType="touchUpInside" id="o2t-Cs-JV3"/>
-                            </connections>
-                        </button>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="phq-AM-6qj" detailTextLabel="RB6-jS-XUY" style="IBUITableViewCellStyleValue1" id="lJ0-d7-vTF">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -748,9 +707,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="buttonTap" destination="DNg-JL-nMW" id="gNg-RO-TnT"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
@@ -816,76 +772,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="918" y="-1268"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AddDayDataStep2ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddDayDataStep2ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="feelValueChanged:"/>
-                <relationship kind="outlet" name="CoughOutlet" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="feelingOutput" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="AddDayDataViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddDayDataViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="outlet" name="DateLabelOutlet" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="chosenTemp" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="ChooseDateViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseDateViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="chooser" candidateClass="UIDatePicker"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PDataAddNewDataStep2Controller" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PDataAddNewDataStep2Controller.h"/>
-            <relationships>
-                <relationship kind="action" name="changedValue:"/>
-                <relationship kind="action" name="coughNo:"/>
-                <relationship kind="action" name="coughYes:"/>
-                <relationship kind="outlet" name="feelingSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="noButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="yesButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="PDataAddNewItemViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PDataAddNewItemViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="chosenTemp" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
-            </relationships>
-        </class>
-        <class className="PDataDayViewerViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PDataDayViewerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="CoughOutlet" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="DateDetailOutlet" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="FeelDetailOutlet" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="SavingOutlet" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="TempDetailOutlet" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="TimeDetailOutlet" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PDataMasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PDataMasterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="saveData:"/>
-                <relationship kind="action" name="saveNewItem:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="outlet" name="buttonTap" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -75,10 +75,6 @@
         
         self.theDay.feelingLevel = [[NSNumber alloc] initWithFloat:self.feelingSlider.value];
     }
-    
-
-
-
 }
 
 
@@ -93,4 +89,13 @@
 - (IBAction)changedValue:(id)sender {
     //NSLog(@"Value = %f",self.feelingSlider.value);
 }
+/*
+- (IBAction)bodyAcheYes:(id)sender {
+    self.hasBodyAche = YES;
+}
+
+- (IBAction)bodyAcheNo:(id)sender {
+    self.hasBodyAche = NO; 
+}
+ */
 @end

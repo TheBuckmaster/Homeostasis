@@ -23,7 +23,6 @@
     return self;
 }
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,14 +31,11 @@
     
 	// Do any additional setup after loading the view.
     
-    NSLog(@"%@",self.ultimateChosenDate);
+    //NSLog(@"%@",self.ultimateChosenDate);
     self.chooser.datePickerMode = UIDatePickerModeDateAndTime;
     [self.chooser setDate:self.ultimateChosenDate animated:YES];
 
 }
-
-
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -49,7 +45,6 @@
   }
     
 }
-
 
 - (void)didReceiveMemoryWarning
 {

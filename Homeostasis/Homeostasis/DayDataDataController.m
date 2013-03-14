@@ -74,9 +74,10 @@
     NSMutableArray *savingList = [[NSMutableArray alloc] init];
     
     for (DayData *d in self.currentDataEntries) {
-        if(!(d.getSaveState == NO))
-            [savingList addObject:d];
+        [savingList addObject:d];
     }
+    
+    NSLog(@"Now saving %d data entries.",savingList.count); 
     
     [NSKeyedArchiver archiveRootObject:savingList toFile:fullPath];
     

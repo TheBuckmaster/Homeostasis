@@ -56,7 +56,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 6;
+    return 5;
 }
 
 - (void)setViewForthatDay
@@ -127,23 +127,8 @@
     else
         self.CoughOutlet.text = @"No"; 
     
-    [self displaySaveState]; 
-    
 }
 
-- (void)displaySaveState
-{
-    if([self.thatDay getSaveState] == NO)
-    {
-        self.SavingOutlet.textLabel.textColor = [UIColor redColor];
-        self.SavingOutlet.textLabel.text = @"This record will not be saved.";
-    }
-    else
-    {
-        self.SavingOutlet.textLabel.textColor = [UIColor blackColor]; 
-        self.SavingOutlet.textLabel.text = @"This record will be saved.";
-    }
-}
 
 /*
 // Override to support conditional editing of the table view.
@@ -188,23 +173,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 5)
-    {
-        //NSLog(@"Selected Switch");
-              
-        if([self.thatDay getSaveState] == NO)
-        {
-            [self.thatDay saveThis];
-            //[self.tableView reloadData];
-        }
-        else
-        {
-            [self.thatDay dontSaveThis];
-            //[self.tableView reloadData];
-        }
-        
-        [self displaySaveState];
-    }
+
+    
 }
 
 @end
