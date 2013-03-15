@@ -79,7 +79,7 @@
     self.TimeDetailOutlet.text = [timeOutput stringFromDate:self.thatDay.theDay];
     self.TempDetailOutlet.detailTextLabel.text = tempString;
     
-    NSLog(@"Feel = %f",self.thatDay.feelingLevel.floatValue);
+    //NSLog(@"Feel = %f",self.thatDay.feelingLevel.floatValue);
     
     NSString *feelString = [[NSString alloc]init];
     
@@ -119,7 +119,6 @@
         }
     }
     
-    NSLog(@" %@",feelString); 
     self.FeelDetailOutlet.text = feelString;
     
     if(self.thatDay.cough)

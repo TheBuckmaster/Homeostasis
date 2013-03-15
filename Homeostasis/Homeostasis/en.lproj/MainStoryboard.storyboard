@@ -288,6 +288,29 @@
                                             <constraint firstItem="Yxn-5e-jgn" firstAttribute="top" secondItem="R6f-qi-ikT" secondAttribute="top" type="default" id="s9A-kZ-nhF"/>
                                         </constraints>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="zqd-WF-R88">
+                                        <rect key="frame" x="0.0" y="88" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You do not have body aches." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNn-r8-A3G">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="228" id="sAh-QC-76p"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="cNn-r8-A3G" firstAttribute="leading" secondItem="zqd-WF-R88" secondAttribute="leading" constant="20" type="default" id="kaC-dY-Lgo"/>
+                                            <constraint firstItem="cNn-r8-A3G" firstAttribute="top" secondItem="zqd-WF-R88" secondAttribute="top" constant="11" id="tKa-dp-Alc"/>
+                                        </constraints>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -304,6 +327,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bodyAcheCell" destination="zqd-WF-R88" id="RNZ-8J-e4f"/>
                         <outlet property="coughNoButton" destination="Yxn-5e-jgn" id="v0W-fM-FtW"/>
                         <outlet property="coughYesButton" destination="R6f-qi-ikT" id="iBF-Z7-7A1"/>
                         <outlet property="feelingSlider" destination="xhz-Ov-lKD" id="ezT-LC-fi3"/>
@@ -772,6 +796,76 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="918" y="-1268"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AddDayDataStep2ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddDayDataStep2ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="feelValueChanged:"/>
+                <relationship kind="outlet" name="CoughOutlet" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="feelingOutput" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="AddDayDataViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddDayDataViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="DateLabelOutlet" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="chosenTemp" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="ChooseDateViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseDateViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="chooser" candidateClass="UIDatePicker"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PDataAddNewDataStep2Controller" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PDataAddNewDataStep2Controller.h"/>
+            <relationships>
+                <relationship kind="action" name="changedValue:"/>
+                <relationship kind="action" name="coughNo:"/>
+                <relationship kind="action" name="coughYes:"/>
+                <relationship kind="outlet" name="bodyAcheCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="coughNoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="coughYesButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="feelingSlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="PDataAddNewItemViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PDataAddNewItemViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="chosenTemp" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="PDataDayViewerViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PDataDayViewerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="CoughOutlet" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="DateDetailOutlet" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="FeelDetailOutlet" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="TempDetailOutlet" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="TimeDetailOutlet" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PDataMasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PDataMasterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="saveNewItem:" candidateClass="UIStoryboardSegue"/>
+            </relationships>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -110,4 +110,8 @@
     return self.cough;
 }
 
+- (NSComparisonResult)compare:(DayData *)otherObject {
+    return [self.theDay compare:otherObject.theDay];
+}
+
 @end

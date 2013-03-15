@@ -56,9 +56,9 @@
     //self.lastIndex = theIndex;
     return [self.currentDataEntries objectAtIndex:theIndex];
 }
+
 - (void)addDayDataToList:(DayData *)thisDay
 {
-    //NSLog(@"%@", thisDay); //So we know it's getting a valid object.
     [self.currentDataEntries addObject:thisDay];
 }
 
@@ -94,6 +94,10 @@
     NSLog(@"CDE has %d",self.countOfList); 
 }
 
+- (void)sorter
+{
+    
+}
 
 
 

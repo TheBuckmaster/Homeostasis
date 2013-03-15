@@ -28,7 +28,8 @@
     [super viewDidLoad];
 
     //NSLog(@"New View!");
-    self.hasCough = NO; 
+    self.hasCough = NO;
+    self.hasBodyAche = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,7 +49,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 2;
+    return 3;
 }
 
 
@@ -56,13 +57,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    if(indexPath.row == 2)
+    {
+        NSLog(@"Selected body ache cell.");
+        if(self.hasBodyAche)
+        {
+            NSLog(@"!!");
+            self.hasBodyAche = NO;
+            self.bodyAcheCell.textLabel.text = @"You do not have body aches.";
+        }
+        else
+        {
+            NSLog(@":/");
+            self.hasBodyAche = YES;
+            self.bodyAcheCell.textLabel.text = @"You have body aches.";
+        }
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
