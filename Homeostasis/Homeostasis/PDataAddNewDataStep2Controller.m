@@ -62,16 +62,21 @@
         NSLog(@"Selected body ache cell.");
         if(self.hasBodyAche)
         {
-            NSLog(@"!!");
             self.hasBodyAche = NO;
             self.bodyAcheCell.textLabel.text = @"You do not have body aches.";
+            UIColor *textColor = [[UIColor alloc] init];
+            textColor = [UIColor blueColor];
+            self.bodyAcheCell.textLabel.textColor = textColor;
         }
         else
         {
-            NSLog(@":/");
             self.hasBodyAche = YES;
             self.bodyAcheCell.textLabel.text = @"You have body aches.";
+            UIColor *textColor = [[UIColor alloc] init];
+            textColor = [UIColor redColor];
+            self.bodyAcheCell.textLabel.textColor = textColor;
         }
+        [self.tableView reloadData];
     }
 }
 

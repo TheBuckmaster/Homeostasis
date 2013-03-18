@@ -294,22 +294,8 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You do not have body aches." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNn-r8-A3G">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="228" id="sAh-QC-76p"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <constraints>
-                                            <constraint firstItem="cNn-r8-A3G" firstAttribute="leading" secondItem="zqd-WF-R88" secondAttribute="leading" constant="20" type="default" id="kaC-dY-Lgo"/>
-                                            <constraint firstItem="cNn-r8-A3G" firstAttribute="top" secondItem="zqd-WF-R88" secondAttribute="top" constant="11" id="tKa-dp-Alc"/>
-                                        </constraints>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -336,7 +322,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCS-oO-13K" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="muT-lp-JbI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2262" y="-1268"/>
+            <point key="canvasLocation" x="2082" y="-1268"/>
         </scene>
         <!--Add Day Data Step2 View Controller - More Info.-->
         <scene sceneID="7Mz-Zj-Por">
@@ -442,7 +428,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qdz-00-pP8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rHI-TR-ldf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2262" y="-590"/>
+            <point key="canvasLocation" x="2082" y="-590"/>
         </scene>
         <!--Data Day Viewer View Controller-->
         <scene sceneID="FzL-ew-4P7">
@@ -671,7 +657,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2D7-ZX-rOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JcD-jZ-J9N" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2262" y="112"/>
+            <point key="canvasLocation" x="2563" y="-2044"/>
         </scene>
         <!--Data Master View Controller - Master-->
         <scene sceneID="18">
@@ -771,7 +757,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Quy-lI-nR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1781" y="112"/>
+            <point key="canvasLocation" x="2082" y="-2044"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1St-Jp-y2x">
@@ -838,8 +824,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="PDataAddNewItemViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PDataAddNewItemViewController.h"/>
             <relationships>
-                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="outlet" name="chosenTemp" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
             </relationships>

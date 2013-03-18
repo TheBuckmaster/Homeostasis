@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 @class DayData;
-
 @interface PDataAddNewDataStep2Controller : UITableViewController
 
 //This is the record day of data to be added. 
