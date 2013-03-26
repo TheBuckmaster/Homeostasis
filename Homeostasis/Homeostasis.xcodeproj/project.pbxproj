@@ -23,6 +23,7 @@
 		3169222216C4223F00E5FDFD /* DayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3169222116C4223F00E5FDFD /* DayData.m */; };
 		3192C4D516D3191D007165E3 /* ChooseDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3192C4D416D3191D007165E3 /* ChooseDateViewController.m */; };
 		31DF4C0616F174260087C225 /* PDataAddNewDataStep2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DF4C0516F174260087C225 /* PDataAddNewDataStep2Controller.m */; };
+		31E07AC317020F4E00BAA7B9 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E07AC217020F4E00BAA7B9 /* EventKit.framework */; };
 		31E7FD5516EF92320014540B /* PDataAddNewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E7FD5416EF92320014540B /* PDataAddNewItemViewController.m */; };
 		31F2E40916C48CAD00A716C3 /* DayDataDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F2E40816C48CAD00A716C3 /* DayDataDataController.m */; };
 		31F2E40D16C49A0B00A716C3 /* AddDayDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F2E40C16C49A0B00A716C3 /* AddDayDataViewController.m */; };
@@ -55,6 +56,7 @@
 		3192C4D416D3191D007165E3 /* ChooseDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDateViewController.m; sourceTree = "<group>"; };
 		31DF4C0416F174260087C225 /* PDataAddNewDataStep2Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDataAddNewDataStep2Controller.h; sourceTree = "<group>"; };
 		31DF4C0516F174260087C225 /* PDataAddNewDataStep2Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDataAddNewDataStep2Controller.m; sourceTree = "<group>"; };
+		31E07AC217020F4E00BAA7B9 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		31E7FD5316EF92320014540B /* PDataAddNewItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDataAddNewItemViewController.h; sourceTree = "<group>"; };
 		31E7FD5416EF92320014540B /* PDataAddNewItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDataAddNewItemViewController.m; sourceTree = "<group>"; };
 		31F2E40716C48CAD00A716C3 /* DayDataDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayDataDataController.h; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31E07AC317020F4E00BAA7B9 /* EventKit.framework in Frameworks */,
 				316921FB16C421DC00E5FDFD /* UIKit.framework in Frameworks */,
 				316921FD16C421DC00E5FDFD /* Foundation.framework in Frameworks */,
 				316921FF16C421DC00E5FDFD /* CoreGraphics.framework in Frameworks */,
@@ -97,6 +100,7 @@
 		316921F916C421DC00E5FDFD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				31E07AC217020F4E00BAA7B9 /* EventKit.framework */,
 				316921FA16C421DC00E5FDFD /* UIKit.framework */,
 				316921FC16C421DC00E5FDFD /* Foundation.framework */,
 				316921FE16C421DC00E5FDFD /* CoreGraphics.framework */,

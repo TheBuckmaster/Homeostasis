@@ -5,7 +5,6 @@
 //  Created by BENJAMIN BUCKMASTER on 2/7/13.
 //  Copyright (c) 2013 BENJAMIN BUCKMASTER. All rights reserved.
 //
-
 #import "PDataMasterViewController.h"
 #import "PDataDetailViewController.h"
 #import "DayData.h"
@@ -15,6 +14,7 @@
 #import "PDataAddNewItemViewController.h"
 #import "PDataAddNewDataStep2Controller.h"
 
+@class EKEvent; 
 @implementation PDataMasterViewController
 
 - (void)awakeFromNib
@@ -33,6 +33,16 @@
     
     UIApplication *app = [UIApplication sharedApplication];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:)name:UIApplicationDidEnterBackgroundNotification object:app];
+    
+    //The 'store' for reminder events used by the app.
+    EKEventStore *store = [[EKEventStore alloc] init];
+    [store requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError *error)
+    {
+        if(granted == YES)
+            NSLog(@"Have Access.");
+        else
+            NSLog(@"Do not have Access.");
+    }];
     
 }
 
