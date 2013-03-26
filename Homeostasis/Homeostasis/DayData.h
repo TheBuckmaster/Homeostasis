@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSNumber *todayTemp;
 @property BOOL *salvaMe;
 @property BOOL cough;
+@property BOOL bodyAche;
+@property BOOL fatigue;
 @property (nonatomic, strong) NSNumber  *feelingLevel;
 
 
@@ -29,6 +31,10 @@
 -(void)sayHasCough;
 -(void)sayHasNoCough;
 -(BOOL)hasCough;
+- (void)sayHasNoAche;
+- (void)sayHasAche;
+- (void)sayHasFatigue;
+- (void)sayHasNoFatigue;
 
 
 @end

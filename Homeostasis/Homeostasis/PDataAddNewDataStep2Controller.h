@@ -15,10 +15,14 @@
 
 //Does the user have a cough? Defaults to NO.
 @property bool hasCough;
-
 //Does the user have body aches? Defaults to NO.
 @property bool hasBodyAche;
+//Does the user have noticable fatigue? Defaults to NO.
+@property bool hasFatigue;
+
 @property (weak, nonatomic) IBOutlet UITableViewCell *bodyAcheCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *coughCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *fatigueCell;
 
 //The buttons and slider for reference.
 @property (weak, nonatomic) IBOutlet UISlider *feelingSlider;
@@ -28,6 +32,10 @@
 //The actions when users click a button or adjust the slider. 
 - (IBAction)coughYes:(id)sender;
 - (IBAction)coughNo:(id)sender;
+- (IBAction)acheYes:(id)sender;
+- (IBAction)acheNo:(id)sender;
+- (IBAction)fatigueYes:(id)sender;
+- (IBAction)fatigueNo:(id)sender;
 - (IBAction)changedValue:(id)sender;
 /*
 - (IBAction)bodyAcheYes:(id)sender;

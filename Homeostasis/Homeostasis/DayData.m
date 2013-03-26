@@ -9,7 +9,7 @@
 #import "DayData.h"
 
 @implementation DayData
-@synthesize theDay, todayTemp, salvaMe, feelingLevel, cough;
+@synthesize theDay, todayTemp, salvaMe, feelingLevel, cough, bodyAche, fatigue;
 
 -(void)setTemp:(NSNumber *)aTemp
 {
@@ -80,6 +80,10 @@
     [encoder encodeObject:feelingLevel forKey:@"feel"];
     NSNumber *coughNumber = [[NSNumber alloc]initWithBool:cough];
     [encoder encodeObject:coughNumber forKey:@"cough"];
+    NSNumber *acheNumber = [[NSNumber alloc]initWithBool:bodyAche];
+    [encoder encodeObject:acheNumber forKey:@"ache"];
+    NSNumber *fatNumber = [[NSNumber alloc]initWithBool:fatigue];
+    [encoder encodeObject:fatNumber forKey:@"fatigue"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder{
@@ -89,6 +93,10 @@
         self.feelingLevel = [decoder decodeObjectForKey:@"feel"];
         NSNumber *coughNumber = [decoder decodeObjectForKey:@"cough"];
         self.cough = [coughNumber boolValue];
+        NSNumber *acheNumber = [decoder decodeObjectForKey:@"ache"];
+        self.bodyAche = [acheNumber boolValue];
+        NSNumber *fatNumber = [decoder decodeObjectForKey:@"fatigue"];
+        self.fatigue = [fatNumber boolValue];
         
         [self saveThis];
     }
@@ -103,6 +111,26 @@
 - (void)sayHasNoCough
 {
     self.cough = NO;
+}
+
+- (void)sayHasAche
+{
+    self.bodyAche = YES;
+}
+
+- (void)sayHasNoAche
+{
+    self.bodyAche = NO;
+}
+
+- (void)sayHasFatigue
+{
+    self.fatigue = YES;
+}
+
+- (void)sayHasNoFatigue
+{
+    self.fatigue = NO;
 }
 
 - (BOOL)hasCough

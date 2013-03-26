@@ -56,7 +56,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 5;
+    return 7;
 }
 
 - (void)setViewForthatDay
@@ -82,37 +82,40 @@
     //NSLog(@"Feel = %f",self.thatDay.feelingLevel.floatValue);
     
     NSString *feelString = [[NSString alloc]init];
-    
-    feelString = @"blegh";
-    if([self.thatDay.feelingLevel floatValue] < 1.0)
-        feelString = @"Gross";
+    if([self.thatDay.feelingLevel floatValue] == 0.0)
+        feelString = @"Terrible";
     else
     {
-        if([self.thatDay.feelingLevel floatValue] < 2.0)
-        {
-            feelString = @"Poor";
-        }
+        if([self.thatDay.feelingLevel floatValue] < 1.0)
+            feelString = @"Gross";
         else
         {
-            if([self.thatDay.feelingLevel floatValue] < 3.0)
+            if([self.thatDay.feelingLevel floatValue] < 2.0)
             {
-                feelString = @"Mediocre";
+                feelString = @"Poor";
             }
             else
             {
-                if([self.thatDay.feelingLevel floatValue ] < 4.0)
+                if([self.thatDay.feelingLevel floatValue] < 3.0)
                 {
-                    feelString = @"Meh";
+                    feelString = @"Mediocre";
                 }
                 else
                 {
-                    if([self.thatDay.feelingLevel floatValue] < 5.0)
+                    if([self.thatDay.feelingLevel floatValue ] < 4.0)
                     {
-                        feelString = @"Good";
+                        feelString = @"Meh";
                     }
                     else
                     {
-                        feelString = @"Great!";
+                        if([self.thatDay.feelingLevel floatValue] < 5.0)
+                        {
+                            feelString = @"Good";
+                        }
+                        else //(>5.0);
+                        {
+                            feelString = @"Great!";
+                        }
                     }
                 }
             }
@@ -124,8 +127,17 @@
     if(self.thatDay.cough)
         self.CoughOutlet.text = @"Yes";
     else
-        self.CoughOutlet.text = @"No"; 
+        self.CoughOutlet.text = @"No";
     
+    if(self.thatDay.bodyAche)
+        self.BodyAcheOutlet.text = @"Yes";
+    else
+        self.BodyAcheOutlet.text = @"No"; 
+    
+    if(self.thatDay.fatigue)
+        self.FatigueOutlet.text = @"Yes";
+    else
+        self.FatigueOutlet.text = @"No";
 }
 
 
