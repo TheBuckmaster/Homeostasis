@@ -39,9 +39,25 @@
     [store requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError *error)
     {
         if(granted == YES)
+        {
             NSLog(@"Have Access.");
+            EKReminder *takeStuffTomorrow = [EKReminder reminderWithEventStore:store];
+            takeStuffTomorrow.completionDate = [[NSDate alloc]initWithTimeIntervalSinceNow:86400.00];
+            NSError *err;
+            if([store saveReminder:takeStuffTomorrow commit:YES error:&err])
+                NSLog(@"Success!");
+            else
+                NSLog(@"Failure!"); 
+            
+
+        }
         else
+        {
             NSLog(@"Do not have Access.");
+        
+        
+        
+        }
     }];
     
 }
