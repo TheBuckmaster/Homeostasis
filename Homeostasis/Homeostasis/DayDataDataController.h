@@ -17,6 +17,7 @@
 - (void)addDayDataToList:(DayData *)thisDay;
 - (void)saveDataToDisk;
 - (void)loadDataFromDisk;
+- (bool)dataForToday;
 
 
 

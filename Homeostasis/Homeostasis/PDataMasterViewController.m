@@ -41,22 +41,44 @@
         if(granted == YES)
         {
             NSLog(@"Have Access.");
+            
+            //Code for creating reminders.
+            /*
             EKReminder *takeStuffTomorrow = [EKReminder reminderWithEventStore:store];
+            takeStuffTomorrow.calendar = store.defaultCalendarForNewReminders; 
+            takeStuffTomorrow.title = @"Report Health Data";
             takeStuffTomorrow.completionDate = [[NSDate alloc]initWithTimeIntervalSinceNow:86400.00];
             NSError *err;
             if([store saveReminder:takeStuffTomorrow commit:YES error:&err])
                 NSLog(@"Success!");
             else
-                NSLog(@"Failure!"); 
+                NSLog(@"Failure!");
+            */
             
-
+            
+            //Code for deleting reminders. 
+            /*
+            NSPredicate *predicate = [store predicateForRemindersInCalendars:nil];
+            [store fetchRemindersMatchingPredicate:predicate completion:^(NSArray *reminders)
+            {
+                for (EKReminder *reminder in reminders) {
+                    NSError *err;
+                    NSLog(@"%@ is being deleted.",reminder.title);
+                    
+                    if([store removeReminder:reminder commit:YES error:&err])
+                        NSLog(@"Success");
+                    else
+                        NSLog(@"Failure"); 
+                }
+                
+            }];
+            */
+            
         }
         else
         {
             NSLog(@"Do not have Access.");
-        
-        
-        
+
         }
     }];
     
@@ -188,6 +210,11 @@
     [self insertNewObject:addController.theDay]; 
     [self dismissViewControllerAnimated:YES completion:NULL];
     [self.dataController saveDataToDisk];
+    if([self.dataController dataForToday]){
+        ;
+        //Set today's reminder to completed. Set tomorrow's. 
+    }
+
 }
 
 

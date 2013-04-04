@@ -94,6 +94,28 @@
     NSLog(@"CDE has %d",self.countOfList); 
 }
 
+- (bool)dataForToday
+{
+
+    for (DayData *one in self.currentDataEntries) 
+    {
+
+        NSDate *today = [[NSDate alloc]init];
+        
+        
+        
+        NSLog(@"%@",one.theDay);
+        
+        
+        //if(one.theDay == today)
+        {
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
 - (void)sorter
 {
     
