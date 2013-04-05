@@ -97,20 +97,33 @@
 - (bool)dataForToday
 {
 
+    //Initialize a dummy date to compare to.
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDate *date = [NSDate date];
+    NSDateComponents *comps = [[NSDateComponents alloc]init]; 
+    comps = [cal components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
+                                     fromDate:date];
+
+    //This NSDate doesn't have a meaningful time. It is the first second of today.
+    NSDate *today = [cal dateFromComponents:comps];
+    //This NSDate is one day later. 
+    NSDate *tomorrow = [NSDate dateWithTimeInterval:86400 sinceDate:today];
+    
+    //Iterate, comparing until (if) we find today's date match. 
     for (DayData *one in self.currentDataEntries) 
     {
-
-        NSDate *today = [[NSDate alloc]init];
+        NSComparisonResult result = [today compare:one.theDay];
+        NSComparisonResult result2 = [tomorrow compare:one.theDay];
         
         
-        
-        NSLog(@"%@",one.theDay);
-        
-        
-        //if(one.theDay == today)
+        //If one.theDay is after today's beginning and before tomorrow's beginning, it's today. 
+        if ((result == NSOrderedAscending) && (result2 == NSOrderedDescending))
         {
+            //NSLog(@"Date is Today!");
+            //Thus, we return YES. 
             return YES;
         }
+        
     }
     
     return NO;
