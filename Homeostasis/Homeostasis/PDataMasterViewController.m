@@ -43,11 +43,24 @@
             NSLog(@"Have Access.");
             
             //Code for creating reminders.
-            /*
-            EKReminder *takeStuffTomorrow = [EKReminder reminderWithEventStore:store];
-            takeStuffTomorrow.calendar = store.defaultCalendarForNewReminders; 
-            takeStuffTomorrow.title = @"Report Health Data";
+            EKReminder *takeStuffTomorrow = [EKReminder reminderWithEventStore:store];           
+            takeStuffTomorrow.calendar = store.defaultCalendarForNewReminders;
+            NSDate *tomorrowDate = [[NSDate alloc]initWithTimeIntervalSinceNow:86400.00];
+            NSLog(@"%@",tomorrowDate.description); 
+            NSDateFormatter *reminderEnd = [[NSDateFormatter alloc]init];
+            [reminderEnd setDateStyle:NSDateFormatterShortStyle];
+            [reminderEnd setTimeStyle:NSDateFormatterNoStyle]; 
+            
+            //reminderEnd.dateStyle = NSDateFormatterShortStyle;
+            //reminderEnd.timeStyle = NSDateFormatterNoStyle;
+            NSString *endString = [reminderEnd stringFromDate:tomorrowDate];
+            NSLog(@"%@",endString); 
+            NSString *titleString = @"Report Health Data for: ";
+            [titleString stringByAppendingString:endString];
+            takeStuffTomorrow.title = titleString;
             takeStuffTomorrow.completionDate = [[NSDate alloc]initWithTimeIntervalSinceNow:86400.00];
+            //NSLog(@"%@",takeStuffTomorrow.title);
+            /*
             NSError *err;
             if([store saveReminder:takeStuffTomorrow commit:YES error:&err])
                 NSLog(@"Success!");
