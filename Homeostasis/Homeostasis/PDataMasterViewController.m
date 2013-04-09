@@ -42,11 +42,11 @@
         {
             NSLog(@"Have Access.");
             
+            /*
             //Code for creating reminders.
             EKReminder *takeStuffTomorrow = [EKReminder reminderWithEventStore:store];           
             takeStuffTomorrow.calendar = store.defaultCalendarForNewReminders;
             NSDate *tomorrowDate = [[NSDate alloc]initWithTimeIntervalSinceNow:86400.00];
-            NSLog(@"%@",tomorrowDate.description); 
             NSDateFormatter *reminderEnd = [[NSDateFormatter alloc]init];
             [reminderEnd setDateStyle:NSDateFormatterShortStyle];
             [reminderEnd setTimeStyle:NSDateFormatterNoStyle]; 
@@ -54,38 +54,45 @@
             //reminderEnd.dateStyle = NSDateFormatterShortStyle;
             //reminderEnd.timeStyle = NSDateFormatterNoStyle;
             NSString *endString = [reminderEnd stringFromDate:tomorrowDate];
-            NSLog(@"%@",endString); 
             NSString *titleString = @"Report Health Data for: ";
-            [titleString stringByAppendingString:endString];
+            titleString = [titleString stringByAppendingString:endString];
             takeStuffTomorrow.title = titleString;
             takeStuffTomorrow.completionDate = [[NSDate alloc]initWithTimeIntervalSinceNow:86400.00];
-            //NSLog(@"%@",takeStuffTomorrow.title);
-            /*
+            NSLog(@"%@",takeStuffTomorrow.title);
+            
             NSError *err;
             if([store saveReminder:takeStuffTomorrow commit:YES error:&err])
                 NSLog(@"Success!");
             else
                 NSLog(@"Failure!");
+            
             */
             
             
             //Code for deleting reminders. 
-            /*
+            
+            
             NSPredicate *predicate = [store predicateForRemindersInCalendars:nil];
             [store fetchRemindersMatchingPredicate:predicate completion:^(NSArray *reminders)
             {
                 for (EKReminder *reminder in reminders) {
-                    NSError *err;
-                    NSLog(@"%@ is being deleted.",reminder.title);
-                    
-                    if([store removeReminder:reminder commit:YES error:&err])
-                        NSLog(@"Success");
-                    else
-                        NSLog(@"Failure"); 
+                    bool isMyReminder = [reminder.title hasPrefix:@"Report Health Data for: "];
+                    //NSLog(@"%@ %@", reminder.title, isMyReminder? @"Yes":@"No");
+                    if(isMyReminder)
+                    {
+                        NSError *err;
+                        NSLog(@"%@ is being deleted.",reminder.title);
+                        
+                        if([store removeReminder:reminder commit:YES error:&err])
+                            NSLog(@"Success");
+                        else
+                            NSLog(@"Failure");
+                    }
                 }
-                
             }];
-            */
+            
+             
+            
             
         }
         else
