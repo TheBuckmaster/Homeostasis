@@ -248,7 +248,7 @@
     [self.dataController saveDataToDisk];
     if([self.dataController dataForToday]){
         ;
-        //Set today's reminder to completed. Set tomorrow's. 
+        
     }
 
 }
@@ -261,14 +261,14 @@
     {
         [self dismissViewControllerAnimated:YES completion:NULL];
         [[self tableView] reloadData];
-        //[self.dataController saveDataToDisk];
+        
     }
     
 }
 
 - (void)applicationDidEnterBackground:(NSNotification *) notification{
 
-    //[self.dataController saveDataToDisk];
+    
 }
 
 
