@@ -34,6 +34,14 @@
     UIApplication *app = [UIApplication sharedApplication];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:)name:UIApplicationDidEnterBackgroundNotification object:app];
     
+    UILocalNotification *notification = [[UILocalNotification alloc]init];
+    [notification setAlertBody:@"I AM A NOTIFICATION"];
+    [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+    [notification setTimeZone:[NSTimeZone defaultTimeZone]];
+    [app setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
+    
+    /* COMMENTING OUT ALL REMINDERS RELATED FUNCTIONALITY. 
+    
     //The 'store' for reminder events used by the app.
     EKEventStore *store = [[EKEventStore alloc] init];
     [store requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError *error)
@@ -42,7 +50,7 @@
         {
             NSLog(@"Have Access.");
             
-            /*
+            
             //Code for creating reminders.
             EKReminder *takeStuffTomorrow = [EKReminder reminderWithEventStore:store];           
             takeStuffTomorrow.calendar = store.defaultCalendarForNewReminders;
@@ -66,7 +74,7 @@
             else
                 NSLog(@"Failure!");
             
-            */
+            
             
             
             //Code for deleting reminders. 
@@ -101,8 +109,12 @@
 
         }
     }];
+
+     */
     
+
 }
+
 
 - (void)didReceiveMemoryWarning
 {

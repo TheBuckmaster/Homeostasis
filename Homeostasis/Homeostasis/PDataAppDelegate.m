@@ -12,6 +12,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    for (NSString *string in launchOptions) {
+        if (string == UIApplicationLaunchOptionsLocalNotificationKey)
+            NSLog(@"Launched by Local Notification!");
+    }
+    
+    NSLog(@"Boring!");
     // Override point for customization after application launch.
     return YES;
 }
@@ -26,6 +32,14 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    
+    UILocalNotification *notification = [[UILocalNotification alloc]init];
+    [notification setAlertBody:@"I AM A NOTIFICATION"];
+    [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:30]];
+    [notification setTimeZone:[NSTimeZone defaultTimeZone]];
+    [notification setSoundName:UILocalNotificationDefaultSoundName];
+    [application setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
