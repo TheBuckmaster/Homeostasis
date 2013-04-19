@@ -12,12 +12,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    for (NSString *string in launchOptions) {
-        if (string == UIApplicationLaunchOptionsLocalNotificationKey)
-            NSLog(@"Launched by Local Notification!");
-    }
+
+    application.applicationIconBadgeNumber = 0;
     
-    NSLog(@"Boring!");
+    // Handle launching from a notification
+    UILocalNotification *localNotif =     [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (localNotif) {
+        NSLog(@"Recieved Notification %@",localNotif);
+    }
+    else
+        NSLog(@"Did not receive notification."); 
+    
     // Override point for customization after application launch.
     return YES;
 }
@@ -34,12 +39,20 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
     
+    
     UILocalNotification *notification = [[UILocalNotification alloc]init];
     [notification setAlertBody:@"I AM A NOTIFICATION"];
+    [notification setAlertAction:@"GO TO APP!"]; 
     [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:30]];
     [notification setTimeZone:[NSTimeZone defaultTimeZone]];
     [notification setSoundName:UILocalNotificationDefaultSoundName];
-    [application setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
+    
+    if(notification == nil)
+        NSLog(@"Is NIL"); 
+    
+    //[application setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    [application setApplicationIconBadgeNumber:0];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -55,6 +68,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    NSLog(@"Received a Notification"); 
 }
 
 @end

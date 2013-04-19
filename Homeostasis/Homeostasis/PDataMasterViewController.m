@@ -38,6 +38,10 @@
     [notification setAlertBody:@"I AM A NOTIFICATION"];
     [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:10]];
     [notification setTimeZone:[NSTimeZone defaultTimeZone]];
+    
+    if(notification == nil)
+        NSLog(@"Is NIL");
+    
     [app setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
     
     /* COMMENTING OUT ALL REMINDERS RELATED FUNCTIONALITY. 
