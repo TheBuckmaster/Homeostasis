@@ -33,17 +33,18 @@
     
     UIApplication *app = [UIApplication sharedApplication];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:)name:UIApplicationDidEnterBackgroundNotification object:app];
-    
+    /*
     UILocalNotification *notification = [[UILocalNotification alloc]init];
     [notification setAlertBody:@"I AM A NOTIFICATION"];
-    [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+    [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:30]];
     [notification setTimeZone:[NSTimeZone defaultTimeZone]];
     
     if(notification == nil)
         NSLog(@"Is NIL");
     
     [app setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
-    
+    */
+     
     /* COMMENTING OUT ALL REMINDERS RELATED FUNCTIONALITY. 
     
     //The 'store' for reminder events used by the app.

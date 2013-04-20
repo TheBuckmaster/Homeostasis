@@ -12,17 +12,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
-    application.applicationIconBadgeNumber = 0;
     
     // Handle launching from a notification
+    // This is called when the program is brought up from nothing.
+    // How to get to that point, frankly, eludes me.
     UILocalNotification *localNotif =     [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (localNotif) {
         NSLog(@"Recieved Notification %@",localNotif);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wait" message:@"Are you sure you want to delete this.  This action cannot be undone" delegate:self cancelButtonTitle:@"Delete" otherButtonTitles:@"Cancel", nil];
+        [alert show];
     }
     else
-        NSLog(@"Did not receive notification."); 
+    {
+        NSLog(@"Did not receive notification.");
+    }
     
+    // Default code/behavior. 
     // Override point for customization after application launch.
     return YES;
 }
@@ -37,22 +42,24 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    
-    
-    
+    /*
     UILocalNotification *notification = [[UILocalNotification alloc]init];
-    [notification setAlertBody:@"I AM A NOTIFICATION"];
-    [notification setAlertAction:@"GO TO APP!"]; 
-    [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:30]];
+    [notification setAlertBody:@"You need to add health data for today."];
+    [notification setAlertAction:@"add now."];
+    
+    //[notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:(right now - today at 8:00 AM) in seconds];
+    //DEMO
+    [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:10]];
     [notification setTimeZone:[NSTimeZone defaultTimeZone]];
     [notification setSoundName:UILocalNotificationDefaultSoundName];
     
     if(notification == nil)
         NSLog(@"Is NIL"); 
     
-    //[application setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-    [application setApplicationIconBadgeNumber:0];
+    [application setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
+    //[[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    //[application setApplicationIconBadgeNumber:1];
+     */
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -72,11 +79,11 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    NSLog(@"Received a Notification");
-
-
+    NSLog(@"Received a Notification; %@", notification);
     
     
+    //This is where an entry if the app is in the background or foreground is handled.
+
 }
 
 @end
