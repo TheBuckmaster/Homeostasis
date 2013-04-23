@@ -93,93 +93,6 @@
             </objects>
             <point key="canvasLocation" x="1380" y="-1268"/>
         </scene>
-        <!--Add Day Data View Controller - Date and Temp-->
-        <scene sceneID="fAw-oC-pAV">
-            <objects>
-                <viewController id="LHP-QM-SiW" customClass="AddDayDataViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qjp-0O-IE0">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAL-PO-lj5">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="E4h-4f-d5b"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="LHP-QM-SiW" id="zd9-wv-wP2"/>
-                                    <outlet property="delegate" destination="LHP-QM-SiW" id="THQ-0T-PRo"/>
-                                </connections>
-                            </pickerView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="dateLabel" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gOA-f2-3Xe">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="53" id="BIs-OC-6vH"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="This is filled dynamically. Blah blah blah blah blah blah blah blah. ">
-                                        <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="17" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8dF-He-EZy">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Click here to Change Date">
-                                            <attributes>
-                                                <color key="NSColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="17" name="Helvetica-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <segue destination="UEa-bs-DTn" kind="modal" identifier="pickADate" id="XaR-KP-k1v"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="gOA-f2-3Xe" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0Ug-IO-G4u"/>
-                            <constraint firstItem="8dF-He-EZy" firstAttribute="top" secondItem="qjp-0O-IE0" secondAttribute="top" constant="50" id="1fB-ah-hLk"/>
-                            <constraint firstItem="8dF-He-EZy" firstAttribute="leading" secondItem="qjp-0O-IE0" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="NIf-D3-NEq"/>
-                            <constraint firstItem="VAL-PO-lj5" firstAttribute="top" secondItem="8dF-He-EZy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="QxK-jJ-cS7"/>
-                            <constraint firstItem="VAL-PO-lj5" firstAttribute="leading" secondItem="qjp-0O-IE0" secondAttribute="leading" type="default" id="aFK-6g-OzQ"/>
-                            <constraint firstItem="gOA-f2-3Xe" firstAttribute="top" secondItem="qjp-0O-IE0" secondAttribute="top" type="default" id="p8p-Zk-yKq"/>
-                            <constraint firstItem="gOA-f2-3Xe" firstAttribute="leading" secondItem="qjp-0O-IE0" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="qZ3-zE-oqV"/>
-                            <constraint firstAttribute="trailing" secondItem="8dF-He-EZy" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="rRf-WA-esI"/>
-                            <constraint firstItem="VAL-PO-lj5" firstAttribute="trailing" secondItem="qjp-0O-IE0" secondAttribute="trailing" type="default" id="reG-1p-Tub"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Date and Temp" id="seZ-U5-6h8">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="sq3-LI-hIq">
-                            <connections>
-                                <segue destination="5Y3-e7-MWO" kind="unwind" unwindAction="cancel:" id="gAE-ef-J34"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="Gem-Cb-nPX">
-                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="Pa2-PT-bHB" kind="push" identifier="toStep2" id="gMa-Zp-PBQ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="DateLabelOutlet" destination="gOA-f2-3Xe" id="DHQ-Vr-n6m"/>
-                        <outlet property="chosenTemp" destination="VAL-PO-lj5" id="DW8-xb-Zyl"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cyc-SB-aFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="5Y3-e7-MWO" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1380" y="-590"/>
-        </scene>
         <!--Data Add New Data Step2 Controller - More Information-->
         <scene sceneID="OEe-lI-o6p">
             <objects>
@@ -440,112 +353,6 @@
                 <exit id="muT-lp-JbI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2082" y="-1268"/>
-        </scene>
-        <!--Add Day Data Step2 View Controller - More Info.-->
-        <scene sceneID="7Mz-Zj-Por">
-            <objects>
-                <viewController id="Pa2-PT-bHB" customClass="AddDayDataStep2ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wPC-9m-d2W">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="6" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sM-2Q-72r">
-                                <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="thumbTintColor" red="1" green="0.94551883447255081" blue="0.3800059491610015" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="feelValueChanged:" destination="Pa2-PT-bHB" eventType="valueChanged" id="zFA-dC-51i"/>
-                                </connections>
-                            </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Very Bad" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZr-bv-ESU">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="17B-nI-lmj"/>
-                                    <constraint firstAttribute="height" constant="42" id="Zg9-q9-v2y"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Very Good" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLW-KT-9xm">
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How Are You Feeling Today? " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFI-wk-m7K">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Do you have a Cough? " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOG-AZ-xVV">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diQ-UU-t55">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="73" id="2h1-Td-8eS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Yes">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4j-fq-xb4">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="73" id="wY6-Hy-SjU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="No">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="i4j-fq-xb4" firstAttribute="baseline" secondItem="diQ-UU-t55" secondAttribute="baseline" type="default" id="3Ff-oL-tR5"/>
-                            <constraint firstItem="diQ-UU-t55" firstAttribute="leading" secondItem="wPC-9m-d2W" secondAttribute="leading" constant="81" id="89A-Pd-6hg"/>
-                            <constraint firstItem="1sM-2Q-72r" firstAttribute="top" secondItem="yFI-wk-m7K" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8Ld-ix-zvZ"/>
-                            <constraint firstAttribute="trailing" secondItem="yFI-wk-m7K" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="B9h-ff-1Jq"/>
-                            <constraint firstItem="1sM-2Q-72r" firstAttribute="centerX" secondItem="yFI-wk-m7K" secondAttribute="centerX" type="default" id="MRz-4n-AfR"/>
-                            <constraint firstItem="lLW-KT-9xm" firstAttribute="leading" secondItem="1sM-2Q-72r" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="V7i-Gk-Y1L"/>
-                            <constraint firstItem="yFI-wk-m7K" firstAttribute="leading" secondItem="wPC-9m-d2W" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="bpR-ii-I5U"/>
-                            <constraint firstItem="DZr-bv-ESU" firstAttribute="top" secondItem="lLW-KT-9xm" secondAttribute="top" type="default" id="cLw-Ho-uAu"/>
-                            <constraint firstItem="i4j-fq-xb4" firstAttribute="leading" secondItem="diQ-UU-t55" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="dvL-jZ-HXg"/>
-                            <constraint firstAttribute="trailing" secondItem="lLW-KT-9xm" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ecn-gy-AWE"/>
-                            <constraint firstItem="iOG-AZ-xVV" firstAttribute="leading" secondItem="wPC-9m-d2W" secondAttribute="leading" type="default" id="iMN-ut-hnC"/>
-                            <constraint firstItem="diQ-UU-t55" firstAttribute="top" secondItem="iOG-AZ-xVV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ioz-eK-28a"/>
-                            <constraint firstItem="yFI-wk-m7K" firstAttribute="top" secondItem="wPC-9m-d2W" secondAttribute="top" constant="20" symbolic="YES" type="default" id="kl8-NY-9Cd"/>
-                            <constraint firstItem="iOG-AZ-xVV" firstAttribute="trailing" secondItem="wPC-9m-d2W" secondAttribute="trailing" type="default" id="kph-rr-w1t"/>
-                            <constraint firstItem="DZr-bv-ESU" firstAttribute="centerY" secondItem="1sM-2Q-72r" secondAttribute="centerY" type="default" id="lSX-gi-PI3"/>
-                            <constraint firstItem="iOG-AZ-xVV" firstAttribute="top" secondItem="DZr-bv-ESU" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ltJ-eE-Wpz"/>
-                            <constraint firstItem="DZr-bv-ESU" firstAttribute="baseline" secondItem="lLW-KT-9xm" secondAttribute="baseline" type="default" id="nVl-vw-vWY"/>
-                            <constraint firstItem="1sM-2Q-72r" firstAttribute="leading" secondItem="DZr-bv-ESU" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="qcd-wS-m4y"/>
-                            <constraint firstItem="DZr-bv-ESU" firstAttribute="leading" secondItem="wPC-9m-d2W" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="tWt-mb-wqa"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="More Info." id="R4S-P5-AYk">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yle-rD-yfA">
-                            <connections>
-                                <segue destination="rHI-TR-ldf" kind="unwind" identifier="addNewDayReturn" unwindAction="saveNewItem:" id="Efk-ku-Px6"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="feelingOutput" destination="1sM-2Q-72r" id="B2h-5c-4Vw"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qdz-00-pP8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="rHI-TR-ldf" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="2082" y="-590"/>
         </scene>
         <!--Data Day Viewer View Controller-->
         <scene sceneID="FzL-ew-4P7">
@@ -892,25 +699,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="459" y="64"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="rEd-Eb-z14">
-            <objects>
-                <navigationController id="Qx0-iS-KCM" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Loa-i9-UdD"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="brF-ba-m5Q">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="LHP-QM-SiW" kind="relationship" relationship="rootViewController" id="nkV-fr-I5V"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="43C-Wm-SSf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="904" y="-590"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="qL9-hF-8ED">
             <objects>
                 <navigationController id="UEa-bs-DTn" sceneMemberID="viewController">
@@ -952,23 +740,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <classes>
-        <class className="AddDayDataStep2ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddDayDataStep2ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="feelValueChanged:"/>
-                <relationship kind="outlet" name="CoughOutlet" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="feelingOutput" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="AddDayDataViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddDayDataViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="outlet" name="DateLabelOutlet" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="chosenTemp" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
         <class className="ChooseDateViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseDateViewController.h"/>
             <relationships>
@@ -999,8 +770,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="PDataAddNewItemViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PDataAddNewItemViewController.h"/>
             <relationships>
-                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="outlet" name="chosenTemp" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
             </relationships>
@@ -1034,7 +803,4 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="jKk-bj-AFm"/>
-    </inferredMetricsTieBreakers>
 </document>
