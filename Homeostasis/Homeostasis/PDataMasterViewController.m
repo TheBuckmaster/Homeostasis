@@ -169,7 +169,7 @@
     //These lines programatically adjust the contents of the cell's members. 
     cell.textLabel.text = niceDate; 
     cell.detailTextLabel.text = [object todayTemp].description;
-    if ([object.todayTemp doubleValue] > [warningValue doubleValue])
+    if ([object.todayTemp doubleValue] >= [warningValue doubleValue])
     {
         cell.detailTextLabel.textColor = [UIColor redColor];
     }

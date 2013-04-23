@@ -12,7 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
+ /*
     // Handle launching from a notification
     // This is called when the program is brought up from nothing.
     // How to get to that point, frankly, eludes me.
@@ -26,6 +26,7 @@
     {
         NSLog(@"Did not receive notification.");
     }
+  */
     
     // Default code/behavior. 
     // Override point for customization after application launch.
@@ -79,8 +80,9 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
+    /*
     NSLog(@"Received a Notification; %@", notification);
-    
+    */
     
     //This is where an entry if the app is in the background or foreground is handled.
 
