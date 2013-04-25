@@ -149,7 +149,7 @@
     cell.accessoryType = UITableViewCellAccessoryNone; 
     
     //Perhaps we want to do something particular if the user reports a particularly high temp.
-    //This variable specifies a value above which the text will turn red. 
+    //This variable specifies a value at or above which the text will turn red. 
     NSNumber *warningValue = [[NSNumber alloc] initWithDouble:100.0];
     NSDate *date = [object theDay];
     
@@ -230,6 +230,7 @@
     NSIndexPath *newIndexPath =[NSIndexPath indexPathForRow:[self.dataController countOfList]inSection:0];
     [self.dataController addDayDataToList:dd];
     [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView reloadData];
 
 }
 

@@ -59,7 +59,26 @@
 
 - (void)addDayDataToList:(DayData *)thisDay
 {
-    [self.currentDataEntries addObject:thisDay];
+    if(self.countOfList == 0)
+    {
+        [self.currentDataEntries addObject:thisDay];
+        return; 
+    }
+    
+    for (DayData *listDay in self.currentDataEntries)
+    {
+        NSComparisonResult result = [thisDay.theDay compare:listDay.theDay];
+        if (result == NSOrderedAscending)
+        {
+            //NSLog(@"%@ is earlier than %@",thisDay.theDay, listDay.theDay);
+            [self.currentDataEntries insertObject:thisDay atIndex:
+             [self.currentDataEntries indexOfObject:listDay]];
+            return;
+        }
+    }
+    
+    [self.currentDataEntries addObject:thisDay]; 
+
 }
 
 
