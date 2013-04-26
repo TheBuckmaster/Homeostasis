@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3109510416D6A0E300FB4632 /* PDataDayViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3109510316D6A0E300FB4632 /* PDataDayViewerViewController.m */; };
+		314CDD67172B19AA004C235E /* PDataAddNewItemIntegratedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 314CDD66172B19AA004C235E /* PDataAddNewItemIntegratedViewController.m */; };
 		316921FB16C421DC00E5FDFD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 316921FA16C421DC00E5FDFD /* UIKit.framework */; };
 		316921FD16C421DC00E5FDFD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 316921FC16C421DC00E5FDFD /* Foundation.framework */; };
 		316921FF16C421DC00E5FDFD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 316921FE16C421DC00E5FDFD /* CoreGraphics.framework */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		3109510216D6A0E300FB4632 /* PDataDayViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDataDayViewerViewController.h; sourceTree = "<group>"; };
 		3109510316D6A0E300FB4632 /* PDataDayViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDataDayViewerViewController.m; sourceTree = "<group>"; };
+		314CDD65172B19A9004C235E /* PDataAddNewItemIntegratedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDataAddNewItemIntegratedViewController.h; sourceTree = "<group>"; };
+		314CDD66172B19AA004C235E /* PDataAddNewItemIntegratedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDataAddNewItemIntegratedViewController.m; sourceTree = "<group>"; };
 		316921F616C421DC00E5FDFD /* Homeostasis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homeostasis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		316921FA16C421DC00E5FDFD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		316921FC16C421DC00E5FDFD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -108,6 +111,8 @@
 				3169220916C421DC00E5FDFD /* PDataAppDelegate.h */,
 				3169220A16C421DC00E5FDFD /* PDataAppDelegate.m */,
 				3169221216C421DC00E5FDFD /* MainStoryboard.storyboard */,
+				314CDD65172B19A9004C235E /* PDataAddNewItemIntegratedViewController.h */,
+				314CDD66172B19AA004C235E /* PDataAddNewItemIntegratedViewController.m */,
 				31DF4C0416F174260087C225 /* PDataAddNewDataStep2Controller.h */,
 				31DF4C0516F174260087C225 /* PDataAddNewDataStep2Controller.m */,
 				31E7FD5316EF92320014540B /* PDataAddNewItemViewController.h */,
@@ -217,6 +222,7 @@
 				3109510416D6A0E300FB4632 /* PDataDayViewerViewController.m in Sources */,
 				31E7FD5516EF92320014540B /* PDataAddNewItemViewController.m in Sources */,
 				31DF4C0616F174260087C225 /* PDataAddNewDataStep2Controller.m in Sources */,
+				314CDD67172B19AA004C235E /* PDataAddNewItemIntegratedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
