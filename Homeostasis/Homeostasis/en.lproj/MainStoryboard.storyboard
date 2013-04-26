@@ -17,9 +17,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="64"/>
+            <point key="canvasLocation" x="-81" y="-1980"/>
         </scene>
-        <!--Data Add New Item View Controller - Date and Temp-->
+        <!--Data Add New Item View Controller - Date / Temp-->
         <scene sceneID="tny-GM-OPO">
             <objects>
                 <tableViewController id="wPV-4e-UjW" customClass="PDataAddNewItemViewController" sceneMemberID="viewController">
@@ -70,7 +70,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Date and Temp" id="FQG-IP-G9M">
+                    <navigationItem key="navigationItem" title="Date / Temp" id="FQG-IP-G9M">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="f7b-rR-AJ8">
                             <connections>
                                 <segue destination="dNX-HM-sua" kind="unwind" unwindAction="cancel:" id="Ogu-ar-UZ9"/>
@@ -91,13 +91,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U2d-vP-b6F" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dNX-HM-sua" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1380" y="-1268"/>
+            <point key="canvasLocation" x="1544" y="-1268"/>
         </scene>
-        <!--Data Add New Data Step2 Controller - More Information-->
+        <!--Data Add New Data Step2 Controller - Details-->
         <scene sceneID="OEe-lI-o6p">
             <objects>
                 <tableViewController id="azN-dM-dZR" customClass="PDataAddNewDataStep2Controller" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="THa-P0-rJs">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="THa-P0-rJs">
                         <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -325,6 +325,30 @@
                                             <constraint firstAttribute="trailing" secondItem="epK-nk-or9" secondAttribute="trailing" constant="95" id="zja-En-ke7"/>
                                         </constraints>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" rowHeight="120" id="YbX-4L-5Ev">
+                                        <rect key="frame" x="0.0" y="176" width="320" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="288" translatesAutoresizingMaskIntoConstraints="NO" id="O8m-qN-Qfw">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="288" id="HFj-WO-sTL"/>
+                                                        <constraint firstAttribute="height" constant="148" id="WYp-l4-lQm"/>
+                                                    </constraints>
+                                                    <string key="text">Cough, Body Ache, and Fatigue are often associated with Flus. If you consistently have these symptoms and/or a temperature over 100 degrees, please consult your doctor. </string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="O8m-qN-Qfw" firstAttribute="leading" secondItem="YbX-4L-5Ev" secondAttribute="leading" constant="20" type="default" id="Kpd-TE-LnS"/>
+                                            <constraint firstItem="O8m-qN-Qfw" firstAttribute="centerY" secondItem="YbX-4L-5Ev" secondAttribute="centerY" type="default" id="s4k-pl-xqu"/>
+                                        </constraints>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -333,7 +357,7 @@
                             <outlet property="delegate" destination="azN-dM-dZR" id="XF5-IX-6uz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="More Information" id="bL7-lu-4D9">
+                    <navigationItem key="navigationItem" title="Details" id="bL7-lu-4D9">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="pPs-z3-u8n">
                             <connections>
                                 <segue destination="muT-lp-JbI" kind="unwind" identifier="save" unwindAction="saveNewItem:" id="oGY-cl-TL1"/>
@@ -352,9 +376,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCS-oO-13K" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="muT-lp-JbI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2082" y="-1268"/>
+            <point key="canvasLocation" x="3135" y="-1268"/>
         </scene>
-        <!--Data Day Viewer View Controller-->
+        <!--Data Day Viewer View Controller - Record Specifics-->
         <scene sceneID="FzL-ew-4P7">
             <objects>
                 <tableViewController id="g06-1S-Oki" customClass="PDataDayViewerViewController" sceneMemberID="viewController">
@@ -548,7 +572,7 @@
                             <outlet property="delegate" destination="g06-1S-Oki" id="WNs-aP-7sL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="9yt-A4-q5m">
+                    <navigationItem key="navigationItem" title="Record Specifics" id="9yt-A4-q5m">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="I79-KF-9FZ">
                             <connections>
                                 <segue destination="0dx-TN-3mV" kind="unwind" identifier="confirmDayReturn" unwindAction="done:" id="4mi-vu-6Fe"/>
@@ -568,9 +592,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yt9-1l-YrA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0dx-TN-3mV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="904" y="64"/>
+            <point key="canvasLocation" x="3135" y="-536"/>
         </scene>
-        <!--Choose Date View Controller-->
+        <!--Choose Date View Controller - Date / Time-->
         <scene sceneID="cja-Tk-bbb">
             <objects>
                 <viewController id="7Lr-0a-XHl" customClass="ChooseDateViewController" sceneMemberID="viewController">
@@ -614,7 +638,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="BGy-X4-QGa" firstAttribute="centerX" secondItem="dVj-Uy-J9X" secondAttribute="centerX" type="default" id="N8w-1j-VpB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hwA-9u-HaK">
+                    <navigationItem key="navigationItem" title="Date / Time" id="hwA-9u-HaK">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mtW-ba-j2z">
                             <connections>
                                 <segue destination="JcD-jZ-J9N" kind="unwind" identifier="noNewDate" unwindAction="cancel:" id="sAD-1S-43I"/>
@@ -633,13 +657,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2D7-ZX-rOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JcD-jZ-J9N" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2563" y="-2044"/>
+            <point key="canvasLocation" x="2088" y="-2760"/>
         </scene>
         <!--Data Master View Controller - Master-->
         <scene sceneID="18">
             <objects>
                 <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="PDataMasterViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -686,7 +710,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Days of Data" id="36">
+                    <navigationItem key="navigationItem" title="Health Data Records" id="36">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bt5-V8-Jvc">
                             <connections>
                                 <segue destination="RZM-4Y-aTO" kind="modal" id="Mbe-ZS-61V"/>
@@ -696,7 +720,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="64"/>
+            <point key="canvasLocation" x="459" y="-536"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qL9-hF-8ED">
@@ -714,7 +738,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Quy-lI-nR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2082" y="-2044"/>
+            <point key="canvasLocation" x="2088" y="-1980"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1St-Jp-y2x">
@@ -736,7 +760,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jil-8c-A0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="918" y="-1268"/>
+            <point key="canvasLocation" x="1010" y="-1980"/>
         </scene>
     </scenes>
     <classes>

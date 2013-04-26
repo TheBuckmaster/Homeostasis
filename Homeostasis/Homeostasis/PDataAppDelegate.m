@@ -15,7 +15,6 @@
  /*
     // Handle launching from a notification
     // This is called when the program is brought up from nothing.
-    // How to get to that point, frankly, eludes me.
     UILocalNotification *localNotif =     [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (localNotif) {
         NSLog(@"Recieved Notification %@",localNotif);
@@ -80,9 +79,9 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    /*
+    
     NSLog(@"Received a Notification; %@", notification);
-    */
+    
     
     //This is where an entry if the app is in the background or foreground is handled.
 
