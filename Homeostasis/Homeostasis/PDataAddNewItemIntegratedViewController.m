@@ -27,10 +27,17 @@
 {
     [super viewDidLoad];
     
-    //Initial value display. 
+    //Initial value display.
+    
+    [self.sliderOutlet setValue:3.0 animated:YES];
     NSString *stringRepTempValue = [[NSString alloc]init];
     [stringRepTempValue stringByAppendingFormat:@"%f",self.StepOutlet.value]; 
     self.tempLabelOutlet.text = stringRepTempValue;
+    
+    self.TimeOutlet.datePickerMode = UIDatePickerModeDateAndTime;
+    [self.TimeOutlet setDate:[[NSDate alloc]init] animated:YES];
+
+    self.DisplayTemp.text = stringRepTempValue; 
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -57,21 +64,12 @@
 {
     // Return the number of rows in the section.
     
-    if(section == 1)
+    if(section == 0)
         return 5;
     else
         return 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
 
 #pragma mark - Table view delegate
 
@@ -86,4 +84,15 @@
      */
 }
 
+- (IBAction)coughYes:(id)sender {
+}
+
+- (IBAction)acheYes:(id)sender {
+}
+
+- (IBAction)fatigueYes:(id)sender {
+}
+
+- (IBAction)coughNo:(id)sender {
+}
 @end

@@ -10,14 +10,18 @@
 
 @interface PDataAddNewItemIntegratedViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UIStepper *StepOutlet;
-@property (weak, nonatomic) IBOutlet UILabel *tempLabelOutlet;
 @property (weak, nonatomic) IBOutlet UISlider *sliderOutlet;
-@property (weak, nonatomic) IBOutlet UIButton *CoughYes;
-@property (weak, nonatomic) IBOutlet UIButton *AcheYes;
-@property (weak, nonatomic) IBOutlet UIButton *FatigueYes;
-@property (weak, nonatomic) IBOutlet UIButton *CoughNo;
-@property (weak, nonatomic) IBOutlet UIButton *AcheNo;
-@property (weak, nonatomic) IBOutlet UIButton *FatigueNo;
 @property (weak, nonatomic) IBOutlet UIDatePicker *TimeOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *DisplayTemp;
+@property (weak, nonatomic) IBOutlet UILabel *DisplayFeel;
+- (IBAction)coughYes:(id)sender;
+- (IBAction)acheYes:(id)sender;
+- (IBAction)fatigueYes:(id)sender;
+- (IBAction)coughNo:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *acheNo;
+@property (weak, nonatomic) IBOutlet UIButton *fatigueNo;
+
+
+
 
 @end

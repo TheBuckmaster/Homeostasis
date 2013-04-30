@@ -206,6 +206,8 @@
         dayViewer.thatDay = dayintended;
 
     }
+    
+    NSLog(@"BLAH"); 
 }
 
 
