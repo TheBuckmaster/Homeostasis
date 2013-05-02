@@ -93,7 +93,7 @@
             </objects>
             <point key="canvasLocation" x="1544" y="-1268"/>
         </scene>
-        <!--Data Add New Item Super Integrated View Controller-->
+        <!--Data Add New Item Super Integrated View Controller - Add New Record-->
         <scene sceneID="rgO-Pr-ebn">
             <objects>
                 <tableViewController id="Pdr-ed-ozG" customClass="PDataAddNewItemSuperIntegratedViewController" sceneMemberID="viewController">
@@ -153,7 +153,7 @@
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="0.0" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="6PE-i9-uvi">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="126" id="hp4-dc-nIc"/>
+                                                        <constraint firstAttribute="width" constant="110" id="hTc-j5-1r6"/>
                                                     </constraints>
                                                     <connections>
                                                         <action selector="changedValue:" destination="azN-dM-dZR" eventType="valueChanged" id="fhq-m6-vLM"/>
@@ -180,11 +180,11 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="6PE-i9-uvi" secondAttribute="trailing" constant="25" id="DR0-S7-EEn"/>
+                                            <constraint firstItem="KAU-ls-SaZ" firstAttribute="centerY" secondItem="CHH-Le-rwT" secondAttribute="centerY" type="default" id="Oe1-7C-PDS"/>
+                                            <constraint firstItem="KAU-ls-SaZ" firstAttribute="leading" secondItem="CHH-Le-rwT" secondAttribute="leading" constant="97" id="dpc-S3-kpS"/>
                                             <constraint firstItem="2b8-0l-jFy" firstAttribute="top" secondItem="6PE-i9-uvi" secondAttribute="top" type="default" id="hHj-sk-tRs"/>
-                                            <constraint firstItem="KAU-ls-SaZ" firstAttribute="leading" secondItem="CHH-Le-rwT" secondAttribute="leading" constant="98" id="jDj-da-sTE"/>
                                             <constraint firstItem="2b8-0l-jFy" firstAttribute="leading" secondItem="CHH-Le-rwT" secondAttribute="leading" constant="30" id="rZS-5P-xKj"/>
-                                            <constraint firstItem="6PE-i9-uvi" firstAttribute="centerY" secondItem="CHH-Le-rwT" secondAttribute="centerY" type="default" id="vCd-xx-exD"/>
-                                            <constraint firstAttribute="trailing" secondItem="6PE-i9-uvi" secondAttribute="trailing" constant="25" id="x4h-6R-gmT"/>
                                             <constraint firstItem="KAU-ls-SaZ" firstAttribute="bottom" secondItem="6PE-i9-uvi" secondAttribute="bottom" type="default" id="zbj-Ql-TAE"/>
                                         </constraints>
                                     </tableViewCell>
@@ -432,7 +432,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="Pdr-ed-ozG" id="2O6-bH-DcC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="R3j-eO-UKo">
+                    <navigationItem key="navigationItem" title="Add New Record" id="R3j-eO-UKo">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="l2P-ee-byo">
                             <connections>
                                 <segue destination="cG4-eu-nA8" kind="unwind" unwindAction="cancel:" id="eyC-hU-wbx"/>
@@ -1030,16 +1030,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <scene sceneID="18">
             <objects>
                 <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="PDataMasterViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="13">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="phq-AM-6qj" detailTextLabel="RB6-jS-XUY" style="IBUITableViewCellStyleValue1" id="lJ0-d7-vTF">
-                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="267" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" restorationIdentifier="LeftLabel" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="phq-AM-6qj">
@@ -1110,7 +1110,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--Navigation Controller-->
         <scene sceneID="1St-Jp-y2x">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jil-8c-A0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="RZM-4Y-aTO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="12i-uP-Bxh">
@@ -1126,6 +1125,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <segue destination="wPV-4e-UjW" kind="relationship" relationship="rootViewController" id="ue2-nE-042"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jil-8c-A0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1010" y="-1980"/>
         </scene>
@@ -1200,8 +1200,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="PDataAddNewItemViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PDataAddNewItemViewController.h"/>
             <relationships>
-                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="outlet" name="chosenTemp" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
             </relationships>
