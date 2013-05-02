@@ -153,7 +153,7 @@
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="0.0" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="6PE-i9-uvi">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="110" id="hTc-j5-1r6"/>
+                                                        <constraint firstAttribute="width" constant="115" id="VGs-eM-35f"/>
                                                     </constraints>
                                                     <connections>
                                                         <action selector="changedValue:" destination="azN-dM-dZR" eventType="valueChanged" id="fhq-m6-vLM"/>
@@ -170,7 +170,7 @@
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="XX.Y" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAU-ls-SaZ">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="70" id="izh-zo-TVo"/>
+                                                        <constraint firstAttribute="width" constant="84" id="Bby-RB-DhQ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -180,11 +180,11 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="6PE-i9-uvi" secondAttribute="trailing" constant="25" id="DR0-S7-EEn"/>
+                                            <constraint firstAttribute="trailing" secondItem="6PE-i9-uvi" secondAttribute="trailing" constant="25" id="Hdx-6U-h3k"/>
                                             <constraint firstItem="KAU-ls-SaZ" firstAttribute="centerY" secondItem="CHH-Le-rwT" secondAttribute="centerY" type="default" id="Oe1-7C-PDS"/>
-                                            <constraint firstItem="KAU-ls-SaZ" firstAttribute="leading" secondItem="CHH-Le-rwT" secondAttribute="leading" constant="97" id="dpc-S3-kpS"/>
                                             <constraint firstItem="2b8-0l-jFy" firstAttribute="top" secondItem="6PE-i9-uvi" secondAttribute="top" type="default" id="hHj-sk-tRs"/>
                                             <constraint firstItem="2b8-0l-jFy" firstAttribute="leading" secondItem="CHH-Le-rwT" secondAttribute="leading" constant="30" id="rZS-5P-xKj"/>
+                                            <constraint firstItem="KAU-ls-SaZ" firstAttribute="leading" secondItem="CHH-Le-rwT" secondAttribute="leading" constant="93" id="xXn-o6-ZQG"/>
                                             <constraint firstItem="KAU-ls-SaZ" firstAttribute="bottom" secondItem="6PE-i9-uvi" secondAttribute="bottom" type="default" id="zbj-Ql-TAE"/>
                                         </constraints>
                                     </tableViewCell>
