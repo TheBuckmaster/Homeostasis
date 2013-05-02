@@ -207,7 +207,6 @@
 
     }
     
-    NSLog(@"BLAH"); 
 }
 
 
@@ -229,8 +228,11 @@
 }
 
 - (IBAction)saveNewItem:(UIStoryboardSegue *)segue
-{   
+{
+    
     PDataAddNewDataStep2Controller *addController = [segue sourceViewController];
+
+    
     [self insertNewObject:addController.theDay]; 
     [self dismissViewControllerAnimated:YES completion:NULL];
     [self.dataController saveDataToDisk];
